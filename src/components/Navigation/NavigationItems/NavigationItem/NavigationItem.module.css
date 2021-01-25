@@ -1,0 +1,25 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+
+.NavigationItem {
+  box-sizing: border-box;
+  display: block;
+  width: auto;
+  margin: 5px 30px;
+}
+
+.NavigationItem a {
+  padding-bottom: 3px;
+  text-decoration: none;
+  color: #000;
+  font-family: "Nanum Gothic", sans-serif;
+  transition: all 0.2s ease-out;
+  background-image: linear-gradient(dodgerblue, dodgerblue);
+  background-size: 0 2px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.NavigationItem a:hover,
+.NavigationItem a:active {
+  background-size: 100% 2px, auto;
+}
