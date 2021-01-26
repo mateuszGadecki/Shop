@@ -1,0 +1,14 @@
+.footerItems {
+  display: block;
+  margin-bottom: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  width: 100%;
+}
+
+.footerItems:hover,
+.footerItems:active {
+  color: dodgerblue;
+  transform: scale(1.05);
+}
