@@ -7,9 +7,17 @@
   padding: 0 20px;
   display: flex;
   box-shadow: 3px 3px 2px #ccc;
+  overflow-x: hidden;
+  position: relative;
 }
 
 .Toolbar nav {
   height: 100%;
   width: 100%;
+}
+
+@media (max-width: 879px) {
+  .DesktopOnly {
+    display: none;
+  }
 }

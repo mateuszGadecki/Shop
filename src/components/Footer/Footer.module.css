@@ -26,10 +26,32 @@
 }
 
 .CopyRights {
+  box-sizing: border-box;
+  padding: 0;
   margin: 0;
   height: 100%;
   width: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+@media (max-width: 1050px) {
+  .Footer {
+    grid-template-columns: 30% 30% 40%;
+  }
+  .CopyRights {
+    padding: 10px;
+  }
+  .FooterItems {
+    padding: 10px;
+  }
+}
+@media (max-width: 650px) {
+  .CopyRights {
+    font-size: 0.7rem;
+  }
+  .FooterTitle {
+    font-size: 0.8rem;
+  }
 }

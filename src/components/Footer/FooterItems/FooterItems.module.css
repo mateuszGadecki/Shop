@@ -12,3 +12,8 @@
   color: dodgerblue;
   transform: scale(1.05);
 }
+@media (max-width: 650px) {
+  .footerItems {
+    font-size: 0.7rem;
+  }
+}
