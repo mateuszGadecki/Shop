@@ -9,6 +9,7 @@
   box-shadow: 3px 3px 2px #ccc;
   overflow-x: hidden;
   position: relative;
+  background-color: #fff;
 }
 
 .Toolbar nav {

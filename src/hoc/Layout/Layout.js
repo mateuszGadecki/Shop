@@ -5,6 +5,8 @@ import Footer from "../../components/Footer/Footer";
 import Aux from "../Aux/Aux";
 import SideDrawer from "../../components/Navigation/SideDrawer/SideDrawer";
 
+import classes from "./Layout.module.css";
+
 class Layout extends Component {
   state = {
     showSideDrawer: false,
@@ -28,6 +30,7 @@ class Layout extends Component {
           open={this.state.showSideDrawer}
           closed={this.sideDrawerClosedHandler}
         />
+        <main className={classes.Content}>{this.props.children}</main>
         <Footer />
       </Aux>
     );
