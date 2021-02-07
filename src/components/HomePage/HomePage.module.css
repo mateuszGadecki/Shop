@@ -18,7 +18,7 @@
   align-items: center;
 }
 
-button {
+.HomePageButton {
   margin-left: 10%;
   position: relative;
   display: inline-block;
@@ -27,7 +27,7 @@ button {
   border: 0;
   vertical-align: middle;
   text-decoration: none;
-  font-size: 1rem;
+  font-size: 1.6rem;
   font-family: Arial;
   font-weight: 600;
   color: #fff;
@@ -78,7 +78,7 @@ button {
   margin-bottom: 15%;
   color: white;
   font-family: Arial;
-  font-size: 58px;
+  font-size: 5.8rem;
   font-weight: 900;
   letter-spacing: -2px;
   text-transform: uppercase;
@@ -152,12 +152,12 @@ button {
 }
 
 @media (max-width: 830px) {
-  button {
+  .HomePageButton {
     padding: 1em 1.5em;
   }
 
   .perspective_text {
-    font-size: 38px;
+    font-size: 3.8rem;
     margin-right: 15%;
   }
 
@@ -236,7 +236,7 @@ button {
     }
   }
   .perspective_text {
-    font-size: 20px;
+    font-size: 2rem;
     margin-right: 45%;
   }
 

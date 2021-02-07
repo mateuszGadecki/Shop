@@ -18,7 +18,7 @@
   align-items: center;
   justify-content: center;
   font-family: "Lobster", cursive;
-  font-size: 3.5rem;
+  font-size: 5.5rem;
   width: 70%;
   margin: 0 auto;
   height: 100%;
@@ -26,7 +26,7 @@
 
 .subTitle {
   width: 70%;
-  font-size: 0.8rem;
+  font-size: 1.25rem;
   margin-top: 4%;
   display: flex;
   align-items: center;
@@ -34,7 +34,7 @@
 }
 
 .longTextContainer {
-  font-size: 1.1rem;
+  font-size: 1.7rem;
   overflow: auto;
   height: 100%;
   width: 70%;
@@ -49,7 +49,7 @@
 }
 
 .shopContainter {
-  font-size: 1.5rem;
+  font-size: 2.3rem;
   height: auto;
   width: auto;
   margin: auto;
@@ -59,13 +59,13 @@
 /* ---------- QUERIES ---------- */
 @media (max-width: 900px) {
   .Title {
-    font-size: 3rem;
+    font-size: 4.7rem;
   }
   .longTextContainer {
-    font-size: 0.9rem;
+    font-size: 1.4rem;
   }
   .shopContainter {
-    font-size: 1.2rem;
+    font-size: 1.9rem;
   }
 }
 @media (max-width: 730px) {
@@ -82,6 +82,6 @@
 }
 @media (max-width: 445px) {
   .longTextContainer {
-    font-size: 0.75rem;
+    font-size: 1.15rem;
   }
 }

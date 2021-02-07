@@ -65,7 +65,7 @@ label {
 /* active state */
 textarea:focus ~ label {
   top: -20px;
-  font-size: 14px;
+  font-size: 1.4rem;
   color: #5264ae;
 }
 
