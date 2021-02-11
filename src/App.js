@@ -6,12 +6,16 @@ import HomePage from "./components/HomePage/HomePage";
 import AboutUs from "./components/AboutUs/AboutUs";
 import Contact from "./components/Contact/Contact";
 import Proceed from "./components/Proceed/Proceed";
+import Offer from "./containers/Offer/Offer";
 
 class App extends Component {
   render() {
     return (
       <Layout>
         <Switch>
+          <Route path="/offer">
+            <Offer />
+          </Route>
           <Route path="/aboutUs">
             <AboutUs />
           </Route>

@@ -1,0 +1,14 @@
+.Offer {
+  height: 100vh;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 20% 80%;
+  grid-template-rows: 20% 80%;
+}
+
+.offerTitle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.7rem;
+}
