@@ -1,0 +1,87 @@
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+
+.aboutUs {
+  margin: 0;
+  padding: 0;
+  height: 100vh;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)),
+    url("../../assets//images/back.jpg");
+  background-size: cover;
+  display: grid;
+  grid-template-columns: 40% 60%;
+  grid-template-rows: 20% 80%;
+  color: #fff;
+}
+
+.Title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "Lobster", cursive;
+  font-size: 5.5rem;
+  width: 70%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+.subTitle {
+  width: 70%;
+  font-size: 1.25rem;
+  margin-top: 4%;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.longTextContainer {
+  font-size: 1.7rem;
+  overflow: auto;
+  height: 100%;
+  width: 70%;
+  line-height: 145%;
+  margin: 0 auto;
+  letter-spacing: 1px;
+}
+
+.logoContainter {
+  display: flex;
+  width: 100%;
+}
+
+.shopContainter {
+  font-size: 2.3rem;
+  height: auto;
+  width: auto;
+  margin: auto;
+  display: block;
+}
+
+/* ---------- QUERIES ---------- */
+@media (max-width: 900px) {
+  .Title {
+    font-size: 4.7rem;
+  }
+  .longTextContainer {
+    font-size: 1.4rem;
+  }
+  .shopContainter {
+    font-size: 1.9rem;
+  }
+}
+@media (max-width: 730px) {
+  .shopContainter {
+    display: none;
+  }
+  .logoContainter {
+    display: none;
+  }
+  .aboutUs {
+    grid-template-columns: 100%;
+    grid-template-rows: 20% 80%;
+  }
+}
+@media (max-width: 445px) {
+  .longTextContainer {
+    font-size: 1.15rem;
+  }
+}

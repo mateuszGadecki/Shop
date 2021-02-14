@@ -1,0 +1,1 @@
+export { initProducts } from "./actions";
