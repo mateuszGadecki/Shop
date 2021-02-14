@@ -1,0 +1,32 @@
+@import url("https://fonts.googleapis.com/css2?family=Nanum+Gothic&display=swap");
+
+li {
+  list-style: none;
+}
+
+.ProducerItem {
+  box-sizing: border-box;
+  display: block;
+  width: auto;
+  margin: 20px 10px;
+  font-size: 2rem;
+  border: none;
+  cursor: pointer;
+}
+
+.ProducerItem {
+  padding-bottom: 3px;
+  text-decoration: none;
+  color: #000;
+  font-family: "Nanum Gothic", sans-serif;
+  transition: all 0.2s ease-out;
+  background-image: linear-gradient(dodgerblue, dodgerblue);
+  background-size: 0 2px, auto;
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.ProducerItem:hover,
+.ProducerItem:active {
+  background-size: 100% 2px, auto;
+}

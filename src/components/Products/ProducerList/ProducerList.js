@@ -1,12 +1,12 @@
 import React from "react";
 
-import Producers from "./Producers/Producers";
+import Producers from "./ProducersItem/ProducersItem";
 
 const producerList = (props) => (
   <ul>
     <Producers>Canon</Producers>
     <Producers>FujiFilm</Producers>
-    <Producers>Lumix</Producers>
+    <Producers>Panasonic</Producers>
     <Producers>Nikon</Producers>
     <Producers>Olympus</Producers>
     <Producers>Pentax</Producers>
