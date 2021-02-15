@@ -14,6 +14,10 @@ export const initProducts = () => {
       .get("https://flume-shop-default-rtdb.firebaseio.com/Products.json")
       .then((response) => {
         dispatch(setProducts(response.data));
+        console.log(response.data);
+      })
+      .catch((error) => {
+        console.log(error);
       });
   };
 };
