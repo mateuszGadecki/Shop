@@ -3,47 +3,48 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   currProducer: "Canon",
   currProducts: {
-    canon: [],
-    fujifilm: [],
-    panasonic: [],
-    nikon: [],
-    olympus: [],
-    pentax: [],
-    sigma: [],
-    sony: [],
+    Canon: [],
+    FujiFilm: [],
+    Panasonic: [],
+    Nikon: [],
+    Olympus: [],
+    Pentax: [],
+    Sigma: [],
+    Sony: [],
   },
 };
 
 const splitProducts = (state, action) => {
   let products = {
-    canon: [],
-    fujifilm: [],
-    panasonic: [],
-    nikon: [],
-    olympus: [],
-    pentax: [],
-    sigma: [],
-    sony: [],
+    Canon: [],
+    FujiFilm: [],
+    Panasonic: [],
+    Nikon: [],
+    Olympus: [],
+    Pentax: [],
+    Sigma: [],
+    Sony: [],
   };
   for (let i = 0; i < action.products.length; i++) {
     if (action.products[i].producent === "Canon") {
-      products.canon.push(action.products[i]);
+      products.Canon.push(action.products[i]);
     } else if (action.products[i].producent === "Panasonic") {
-      products.panasonic.push(action.products[i]);
+      products.Panasonic.push(action.products[i]);
     } else if (action.products[i].producent === "FujiFilm") {
-      products.fujifilm.push(action.products[i]);
+      products.FujiFilm.push(action.products[i]);
     } else if (action.products[i].producent === "Nikon") {
-      products.nikon.push(action.products[i]);
+      products.Nikon.push(action.products[i]);
     } else if (action.products[i].producent === "Olympus") {
-      products.olympus.push(action.products[i]);
+      products.Olympus.push(action.products[i]);
     } else if (action.products[i].producent === "Pentax") {
-      products.pentax.push(action.products[i]);
+      products.Pentax.push(action.products[i]);
     } else if (action.products[i].producent === "Sigma") {
-      products.sigma.push(action.products[i]);
+      products.Sigma.push(action.products[i]);
     } else if (action.products[i].producent === "Sony") {
-      products.sony.push(action.products[i]);
+      products.Sony.push(action.products[i]);
     }
   }
+
   return products;
 };
 

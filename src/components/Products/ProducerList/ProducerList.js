@@ -4,14 +4,14 @@ import Producers from "./ProducersItem/ProducersItem";
 
 const producerList = (props) => (
   <ul>
-    <Producers>Canon</Producers>
-    <Producers>FujiFilm</Producers>
-    <Producers>Panasonic</Producers>
-    <Producers>Nikon</Producers>
-    <Producers>Olympus</Producers>
-    <Producers>Pentax</Producers>
-    <Producers>Sigma</Producers>
-    <Producers>Sony</Producers>
+    <Producers clicked={props.filter}>Canon</Producers>
+    <Producers clicked={props.filter}>FujiFilm</Producers>
+    <Producers clicked={props.filter}>Panasonic</Producers>
+    <Producers clicked={props.filter}>Nikon</Producers>
+    <Producers clicked={props.filter}>Olympus</Producers>
+    <Producers clicked={props.filter}>Pentax</Producers>
+    <Producers clicked={props.filter}>Sigma</Producers>
+    <Producers clicked={props.filter}>Sony</Producers>
   </ul>
 );
 

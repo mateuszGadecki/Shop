@@ -9,12 +9,24 @@ import Title from "../../components/UI/Title/Title";
 import * as actions from "../../store/actions/index";
 
 class Offer extends Component {
+  state = {
+    currProducer: "Canon",
+  };
+
   componentDidMount() {
     this.props.onInitProducts();
-    console.log(this.props.curProducts);
+  }
+
+  changeStateProducer(producerName) {
+    this.setState({ currProducer: producerName });
   }
 
   render() {
+    const filterByProducerHandler = (e) => {
+      let firedButton = e.target.value;
+      this.changeStateProducer(firedButton);
+    };
+
     return (
       <div className={classes.Offer}>
         <div className={classes.OfferTitle}>
@@ -23,9 +35,11 @@ class Offer extends Component {
         <div className={classes.PictureContainer}>
           <img className={classes.Picture} src={OfferPicture} alt="Offer" />
         </div>
-        <ProducerList />
+        <ProducerList filter={filterByProducerHandler} />
         <div className={classes.Products}>
-          <ProductContainer />
+          {this.props.curProducts[this.state.currProducer].map((e) => {
+            return <ProductContainer obj={e} />;
+          })}
         </div>
       </div>
     );
@@ -34,7 +48,7 @@ class Offer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    curProducts: state.products,
+    curProducts: state.currProducts,
   };
 };
 
