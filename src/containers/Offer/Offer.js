@@ -35,7 +35,10 @@ class Offer extends Component {
         <div className={classes.PictureContainer}>
           <img className={classes.Picture} src={OfferPicture} alt="Offer" />
         </div>
-        <ProducerList filter={filterByProducerHandler} />
+        <ProducerList
+          currentProducer={this.state.currProducer}
+          filter={filterByProducerHandler}
+        />
         <div className={classes.Products}>
           {this.props.curProducts[this.state.currProducer].map((e) => {
             return <ProductContainer obj={e} />;
