@@ -41,7 +41,7 @@ class Offer extends Component {
         />
         <div className={classes.Products}>
           {this.props.curProducts[this.state.currProducer].map((e) => {
-            return <ProductContainer obj={e} />;
+            return <ProductContainer key={e.id} obj={e} />;
           })}
         </div>
       </div>

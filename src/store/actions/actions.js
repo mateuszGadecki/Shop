@@ -8,6 +8,13 @@ export const setProducts = (products) => {
   };
 };
 
+export const setCurrProduct = (product) => {
+  return {
+    type: actionTypes.SET_CURRENT_PRODUCT,
+    product: product,
+  };
+};
+
 export const initProducts = () => {
   return (dispatch) => {
     axios

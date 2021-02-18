@@ -1,1 +1,1 @@
-export { initProducts } from "./actions";
+export { initProducts, setCurrProduct } from "./actions";

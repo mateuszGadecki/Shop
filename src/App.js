@@ -7,6 +7,7 @@ import AboutUs from "./components/AboutUs/AboutUs";
 import Contact from "./components/Contact/Contact";
 import Proceed from "./components/Proceed/Proceed";
 import Offer from "./containers/Offer/Offer";
+import Properties from "./components/Properties/Properties";
 
 class App extends Component {
   render() {
@@ -15,6 +16,9 @@ class App extends Component {
         <Switch>
           <Route path="/offer">
             <Offer />
+          </Route>
+          <Route path="/properties">
+            <Properties />
           </Route>
           <Route path="/aboutUs">
             <AboutUs />

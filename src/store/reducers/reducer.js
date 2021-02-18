@@ -2,6 +2,7 @@ import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
   currProducer: "Canon",
+  currProduct: null,
   currProducts: {
     Canon: [],
     FujiFilm: [],
@@ -56,10 +57,20 @@ const setProducts = (state, action) => {
   };
 };
 
+const setCurrProduct = (state, action) => {
+  const updateProduct = action.product;
+  return {
+    ...state,
+    currProduct: updateProduct,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_PRODUCTS:
       return setProducts(state, action);
+    case actionTypes.SET_CURRENT_PRODUCT:
+      return setCurrProduct(state, action);
     default:
       return state;
   }
