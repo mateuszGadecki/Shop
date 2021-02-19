@@ -8,6 +8,7 @@
   transition: 0.2s ease-out all;
   cursor: pointer;
   border: 1px solid #43b2f7;
+  transform: scale(1);
 }
 
 .Button:hover,
