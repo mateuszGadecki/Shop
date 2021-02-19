@@ -14,6 +14,12 @@ export const setCurrProduct = (product) => {
     product: product,
   };
 };
+export const setCurrProducer = (producer) => {
+  return {
+    type: actionTypes.SET_CURRENT_PRODUCER,
+    producer: producer,
+  };
+};
 
 export const initProducts = () => {
   return (dispatch) => {

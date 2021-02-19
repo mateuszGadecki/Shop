@@ -64,6 +64,13 @@ const setCurrProduct = (state, action) => {
     currProduct: updateProduct,
   };
 };
+const setCurrProducer = (state, action) => {
+  const updateProducer = action.producer;
+  return {
+    ...state,
+    currProducer: updateProducer,
+  };
+};
 
 const reducer = (state = initialState, action) => {
   switch (action.type) {
@@ -71,6 +78,8 @@ const reducer = (state = initialState, action) => {
       return setProducts(state, action);
     case actionTypes.SET_CURRENT_PRODUCT:
       return setCurrProduct(state, action);
+    case actionTypes.SET_CURRENT_PRODUCER:
+      return setCurrProducer(state, action);
     default:
       return state;
   }

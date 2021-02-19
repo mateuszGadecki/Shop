@@ -9,22 +9,14 @@ import Title from "../../components/UI/Title/Title";
 import * as actions from "../../store/actions/index";
 
 class Offer extends Component {
-  state = {
-    currProducer: "Canon",
-  };
-
   componentDidMount() {
     this.props.onInitProducts();
-  }
-
-  changeStateProducer(producerName) {
-    this.setState({ currProducer: producerName });
   }
 
   render() {
     const filterByProducerHandler = (e) => {
       let firedButton = e.target.value;
-      this.changeStateProducer(firedButton);
+      this.props.onSetCurrProducer(firedButton);
     };
 
     return (
@@ -36,11 +28,11 @@ class Offer extends Component {
           <img className={classes.Picture} src={OfferPicture} alt="Offer" />
         </div>
         <ProducerList
-          currentProducer={this.state.currProducer}
+          currentProducer={this.props.currProducer}
           filter={filterByProducerHandler}
         />
         <div className={classes.Products}>
-          {this.props.curProducts[this.state.currProducer].map((e) => {
+          {this.props.curProducts[this.props.currProducer].map((e) => {
             return <ProductContainer key={e.id} obj={e} />;
           })}
         </div>
@@ -52,12 +44,15 @@ class Offer extends Component {
 const mapStateToProps = (state) => {
   return {
     curProducts: state.currProducts,
+    currProducer: state.currProducer,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
     onInitProducts: () => dispatch(actions.initProducts()),
+    onSetCurrProducer: (producer) =>
+      dispatch(actions.setCurrProducer(producer)),
   };
 };
 
