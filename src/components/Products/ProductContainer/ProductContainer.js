@@ -11,17 +11,28 @@ import * as actions from "../../../store/actions/index";
 
 class ProductContainer extends Component {
   state = {
-    redirect: false,
+    propertiesPage: false,
+    cartPage: false,
   };
 
-  setRedirect = () => {
+  setProperties = () => {
     this.setState({
-      redirect: true,
+      propertiesPage: true,
     });
   };
-  renderRedirect = () => {
-    if (this.state.redirect) {
+  setCart = () => {
+    this.setState({
+      cartPage: true,
+    });
+  };
+  renderProperties = () => {
+    if (this.state.propertiesPage) {
       return <Redirect to="/properties" />;
+    }
+  };
+  renderCart = () => {
+    if (this.state.cartPage) {
+      return <Redirect to="/cart" />;
     }
   };
 
@@ -41,18 +52,27 @@ class ProductContainer extends Component {
           <div className={classes.ProductText}>{this.props.obj.price} PLN</div>
           <div className={classes.ButtonsContainer}>
             <div className={classes.ButtonContainer}>
-              {this.renderRedirect()}
+              {this.renderProperties()}
               <Button
+                fontSize="1.4rem"
                 clicked={() => {
                   this.props.onSetCurrProduct(this.props.obj);
-                  this.setRedirect();
+                  this.setProperties();
                 }}
               >
                 Szczegóły
               </Button>
             </div>
             <div className={classes.ButtonContainer}>
-              <Button>Zamów</Button>
+              {this.renderCart()}
+              <Button
+                fontSize="1.4rem"
+                clicked={() => {
+                  this.setCart();
+                }}
+              >
+                Dodaj Do Koszyka
+              </Button>
             </div>
           </div>
         </div>

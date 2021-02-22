@@ -7,27 +7,40 @@ import Button from "../UI/Button/Button";
 
 class Properties extends Component {
   state = {
-    redirect: false,
+    offerPage: false,
+    cartPage: false,
   };
 
-  setRedirect = () => {
+  setOffer = () => {
     this.setState({
-      redirect: true,
+      offerPage: true,
     });
   };
-  renderRedirect = () => {
-    if (this.state.redirect) {
+  renderOfferPage = () => {
+    if (this.state.offerPage) {
       return <Redirect to="/offer" />;
     }
   };
+
+  setCart = () => {
+    this.setState({
+      cartPage: true,
+    });
+  };
+  renderCart = () => {
+    if (this.state.cartPage) {
+      return <Redirect to="/cart" />;
+    }
+  };
+
   render() {
     let productDetails;
     if (this.props.currProduct) {
       productDetails = (
         <div className={classes.Properties}>
           <div>
-            {this.renderRedirect()}
-            <button onClick={this.setRedirect} className={classes.returnButton}>
+            {this.renderOfferPage()}
+            <button onClick={this.setOffer} className={classes.returnButton}>
               &#8592; Wróć
             </button>
           </div>
@@ -50,7 +63,14 @@ class Properties extends Component {
               <p>+48 123-456-789</p>
               <p>Razem: {this.props.currProduct.price + 15} PLN</p>
               <div>
-                <Button>Dodaj Do Koszyka</Button>
+                {this.renderCart()}
+                <Button
+                  clicked={() => {
+                    this.setCart();
+                  }}
+                >
+                  Dodaj Do Koszyka
+                </Button>
               </div>
             </div>
           </div>
