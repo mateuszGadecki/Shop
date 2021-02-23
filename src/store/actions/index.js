@@ -1,1 +1,3 @@
-export { initProducts, setCurrProduct, setCurrProducer } from "./actions";
+export { initProducts, setCurrProduct, setCurrProducer } from "./offer";
+
+export { cartPost, initCartItems } from "./cart";
