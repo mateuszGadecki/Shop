@@ -4,6 +4,7 @@ import { Redirect } from "react-router-dom";
 
 import classes from "./Properties.module.css";
 import Button from "../UI/Button/Button";
+import * as actions from "../../store/actions/index";
 
 class Properties extends Component {
   state = {
@@ -31,6 +32,14 @@ class Properties extends Component {
     if (this.state.cartPage) {
       return <Redirect to="/cart" />;
     }
+  };
+
+  addToCartHandler = () => {
+    const cartItem = {
+      orderDetails: this.props.currProduct,
+    };
+
+    this.props.onCart(cartItem);
   };
 
   render() {
@@ -67,6 +76,7 @@ class Properties extends Component {
                 <Button
                   clicked={() => {
                     this.setCart();
+                    this.addToCartHandler();
                   }}
                 >
                   Dodaj Do Koszyka
@@ -88,8 +98,14 @@ class Properties extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    currProduct: state.currProduct,
+    currProduct: state.offer.currProduct,
   };
 };
 
-export default connect(mapStateToProps)(Properties);
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onCart: (orderProps) => dispatch(actions.cartPost(orderProps)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Properties);

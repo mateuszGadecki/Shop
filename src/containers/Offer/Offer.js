@@ -43,8 +43,8 @@ class Offer extends Component {
 
 const mapStateToProps = (state) => {
   return {
-    curProducts: state.currProducts,
-    currProducer: state.currProducer,
+    curProducts: state.offer.currProducts,
+    currProducer: state.offer.currProducer,
   };
 };
 

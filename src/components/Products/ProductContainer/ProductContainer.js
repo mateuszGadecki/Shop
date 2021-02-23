@@ -36,6 +36,14 @@ class ProductContainer extends Component {
     }
   };
 
+  addToCartHandler = () => {
+    const cartItem = {
+      orderDetails: this.props.obj,
+    };
+
+    this.props.onCart(cartItem);
+  };
+
   render() {
     return (
       <Aux>
@@ -68,6 +76,7 @@ class ProductContainer extends Component {
               <Button
                 fontSize="1.4rem"
                 clicked={() => {
+                  this.addToCartHandler();
                   this.setCart();
                 }}
               >
@@ -84,6 +93,7 @@ class ProductContainer extends Component {
 const mapDispatchToProps = (dispatch) => {
   return {
     onSetCurrProduct: (product) => dispatch(actions.setCurrProduct(product)),
+    onCart: (orderProps) => dispatch(actions.cartPost(orderProps)),
   };
 };
 
