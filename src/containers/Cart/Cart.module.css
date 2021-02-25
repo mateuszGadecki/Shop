@@ -21,8 +21,9 @@
 }
 
 .CartSubmit {
-  display: grid;
-  grid-template-columns: 60% 40%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 60px;
 }
 
 .CartTotalPrice {
@@ -30,4 +31,16 @@
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 30px;
+  font-size: 1.6rem;
+}
+
+.totalPrice {
+  margin: 10px 0;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+  font-size: 2.2rem;
 }

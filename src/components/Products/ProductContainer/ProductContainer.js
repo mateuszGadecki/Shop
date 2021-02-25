@@ -78,6 +78,7 @@ class ProductContainer extends Component {
                 clicked={() => {
                   this.addToCartHandler();
                   this.setCart();
+                  this.props.onSetTotalPrice();
                 }}
               >
                 Dodaj Do Koszyka
@@ -94,6 +95,7 @@ const mapDispatchToProps = (dispatch) => {
   return {
     onSetCurrProduct: (product) => dispatch(actions.setCurrProduct(product)),
     onCart: (orderProps) => dispatch(actions.cartPost(orderProps)),
+    onSetTotalPrice: () => dispatch(actions.setTotalPrice()),
   };
 };
 

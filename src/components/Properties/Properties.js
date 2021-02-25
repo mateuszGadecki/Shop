@@ -77,6 +77,7 @@ class Properties extends Component {
                   clicked={() => {
                     this.setCart();
                     this.addToCartHandler();
+                    this.props.onSetTotalPrice();
                   }}
                 >
                   Dodaj Do Koszyka
@@ -105,6 +106,7 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
   return {
     onCart: (orderProps) => dispatch(actions.cartPost(orderProps)),
+    onSetTotalPrice: () => dispatch(actions.setTotalPrice()),
   };
 };
 

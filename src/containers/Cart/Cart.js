@@ -9,17 +9,20 @@ import Title from "../../components/UI/Title/Title";
 
 class Cart extends Component {
   render() {
-    let cart;
+    let cart, cartTitles, cartSubmit;
     if (this.props.cartItems.length <= 0) {
-      cart = <div>Koszyk jest pusty</div>;
+      cart = <div className={classes.center}>Koszyk jest pusty</div>;
+      cartTitles = (
+        <div className={classes.center}>
+          <img src={cartIcon} alt="cartIcon" />
+        </div>
+      );
+      cartSubmit = null;
     } else {
       cart = this.props.cartItems.map((e) => {
         return <CartList key={e.id} cartItemDetails={e} />;
       });
-    }
-
-    return (
-      <div className={classes.Cart}>
+      cartTitles = (
         <div className={classes.CartColumns}>
           <div>
             <Title fontSize="2.2rem">Lista Produktów</Title>
@@ -38,16 +41,22 @@ class Cart extends Component {
             <Title fontSize="2.2rem">Usuń</Title>
           </div>
         </div>
-        {cart}
-        <div className={classes.CartSubmit}>
-          <div>
-            <img src={cartIcon} alt="x" />
+      );
+      cartSubmit = (
+        <div className={classes.CartTotalPrice}>
+          <div className={classes.totalPrice}>
+            Do zapłaty: {this.props.totalPrice} PLN
           </div>
-          <div className={classes.CartTotalPrice}>
-            <div>Do zapłaty: 1500 PLN</div>
-            <Button fontSize="1.5rem">Kontynuuj Zakupy</Button>
-          </div>
+          <Button fontSize="1.5rem">Kontynuuj Zakupy</Button>
         </div>
+      );
+    }
+
+    return (
+      <div className={classes.Cart}>
+        {cartTitles}
+        {cart}
+        <div className={classes.CartSubmit}>{cartSubmit}</div>
       </div>
     );
   }
@@ -56,6 +65,7 @@ class Cart extends Component {
 const mapStateToProps = (state) => {
   return {
     cartItems: state.cart.cartItems,
+    totalPrice: state.cart.totalPrice,
   };
 };
 
