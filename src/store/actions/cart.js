@@ -6,6 +6,11 @@ export const setCart = (cartItems) => {
     cartItems: cartItems,
   };
 };
+export const setTotalPrice = () => {
+  return {
+    type: actionTypes.SET_TOTAL_PRICE,
+  };
+};
 
 export const cartPost = (orderProps) => {
   return (dispatch) => {
