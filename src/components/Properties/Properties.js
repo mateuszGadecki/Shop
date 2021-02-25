@@ -19,7 +19,7 @@ class Properties extends Component {
   };
   renderOfferPage = () => {
     if (this.state.offerPage) {
-      return <Redirect to="/offer" />;
+      return <Redirect push to="/offer" />;
     }
   };
 
@@ -30,7 +30,7 @@ class Properties extends Component {
   };
   renderCart = () => {
     if (this.state.cartPage) {
-      return <Redirect to="/cart" />;
+      return <Redirect push to="/cart" />;
     }
   };
 

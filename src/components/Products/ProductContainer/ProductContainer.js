@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { Redirect } from "react-router-dom";
+import { Route, Redirect, withRouter } from "react-router-dom";
 
 import classes from "./ProductContainer.module.css";
 import Aux from "../../../hoc/Aux/Aux";
@@ -8,6 +8,7 @@ import Aux from "../../../hoc/Aux/Aux";
 import Picture from "../../UI/Picture/Picture";
 import Button from "../../UI/Button/Button";
 import * as actions from "../../../store/actions/index";
+import Properties from "../../Properties/Properties";
 
 class ProductContainer extends Component {
   state = {
@@ -27,12 +28,12 @@ class ProductContainer extends Component {
   };
   renderProperties = () => {
     if (this.state.propertiesPage) {
-      return <Redirect to="/properties" />;
+      return <Redirect push to="/properties" />;
     }
   };
   renderCart = () => {
     if (this.state.cartPage) {
-      return <Redirect to="/cart" />;
+      return <Redirect push to="/cart" />;
     }
   };
 
@@ -70,6 +71,10 @@ class ProductContainer extends Component {
               >
                 Szczegóły
               </Button>
+              <Route
+                path={this.props.match.path + "/properties"}
+                component={Properties}
+              />
             </div>
             <div className={classes.ButtonContainer}>
               {this.renderCart()}
@@ -99,4 +104,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(ProductContainer);
+export default withRouter(connect(null, mapDispatchToProps)(ProductContainer));
