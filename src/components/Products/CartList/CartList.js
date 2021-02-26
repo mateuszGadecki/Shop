@@ -12,7 +12,14 @@ const cartList = (props) => {
       <div>{props.cartItemDetails.orderDetails.price} PLN</div>
       <div>1-2 dni robocze</div>
       <div>15 PLN</div>
-      <div>X</div>
+      <button
+        onClick={() => {
+          props.removeItemHandler(props.cartItemDetails.orderDetails.id);
+        }}
+        className={classes.removeButton}
+      >
+        X
+      </button>
     </div>
   );
 };

@@ -6,6 +6,7 @@ import CartList from "../../components/Products/CartList/CartList";
 import Button from "../../components/UI/Button/Button";
 import cartIcon from "../../assets/icons/cart.svg";
 import Title from "../../components/UI/Title/Title";
+import * as actions from "../../store/actions/index";
 
 class Cart extends Component {
   render() {
@@ -20,7 +21,13 @@ class Cart extends Component {
       cartSubmit = null;
     } else {
       cart = this.props.cartItems.map((e) => {
-        return <CartList key={e.id} cartItemDetails={e} />;
+        return (
+          <CartList
+            removeItemHandler={this.props.onRemoveCartItem}
+            key={e.id}
+            cartItemDetails={e}
+          />
+        );
       });
       cartTitles = (
         <div className={classes.CartColumns}>
@@ -68,5 +75,10 @@ const mapStateToProps = (state) => {
     totalPrice: state.cart.totalPrice,
   };
 };
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onRemoveCartItem: (id) => dispatch(actions.removeCartItem(id)),
+  };
+};
 
-export default connect(mapStateToProps)(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);
