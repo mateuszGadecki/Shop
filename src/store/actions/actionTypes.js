@@ -4,3 +4,4 @@ export const SET_CURRENT_PRODUCER = "SET_CURRENT_PRODUCER";
 
 export const SET_CART = "SET_CART";
 export const SET_TOTAL_PRICE = "SET_TOTAL_PRICE";
+export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";

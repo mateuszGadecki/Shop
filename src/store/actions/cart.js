@@ -6,6 +6,12 @@ export const setCart = (cartItems) => {
     cartItems: cartItems,
   };
 };
+export const removeCartItem = (id) => {
+  return {
+    type: actionTypes.REMOVE_CART_ITEM,
+    id: id,
+  };
+};
 export const setTotalPrice = () => {
   return {
     type: actionTypes.SET_TOTAL_PRICE,
