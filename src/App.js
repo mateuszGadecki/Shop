@@ -9,12 +9,16 @@ import Proceed from "./components/Proceed/Proceed";
 import Offer from "./containers/Offer/Offer";
 import Properties from "./components/Properties/Properties";
 import Cart from "./containers/Cart/Cart";
+import Account from "./containers/Account/Account";
 
 class App extends Component {
   render() {
     return (
       <Layout>
         <Switch>
+          <Route path="/account">
+            <Account />
+          </Route>
           <Route path="/offer">
             <Offer />
           </Route>

@@ -1,0 +1,9 @@
+.Account {
+  width: 90%;
+  height: 100%;
+  margin: 0 auto;
+  padding: 60px 0;
+  display: grid;
+  grid-template-rows: auto;
+  grid-auto-rows: min-content;
+}

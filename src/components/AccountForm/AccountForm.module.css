@@ -1,0 +1,69 @@
+.AccountForm {
+  margin: auto;
+  width: 50%;
+  height: auto;
+  box-shadow: rgba(50, 50, 93, 0.25) 0px 6px 12px -2px,
+    rgba(0, 0, 0, 0.3) 0px 3px 7px -3px;
+  background-color: #fff;
+  border-radius: 50px;
+}
+
+.AccountFormTitle {
+  display: flex;
+  justify-content: center;
+}
+
+.logInContainer {
+  padding: 60px 0;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 25% 25% 25% 25%;
+}
+.registerContainer {
+  padding: 60px 0;
+  width: 80%;
+  margin: 0 auto;
+  display: grid;
+  grid-template-rows: 20% 20% 20% 20% 20%;
+}
+
+.input {
+  padding: 15px 0;
+  display: flex;
+  justify-content: center;
+}
+
+.buttonsContainer {
+  width: 80%;
+  margin: 0 auto;
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 50% 50%;
+}
+
+.buttonContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.buttonContainer p {
+  font-size: 1.2rem;
+}
+
+.AccountFormButton {
+  background-color: #fff;
+  border: none;
+  outline: none;
+  color: #22a5f6;
+  transition: 0.2s ease-out all;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+
+.AccountFormButton:hover,
+.AccountFormButton:active {
+  color: #84cdfa;
+}
