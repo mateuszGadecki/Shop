@@ -39,6 +39,10 @@
   margin: 10px 0;
 }
 
+.totalPrice_2 {
+  font-size: 2rem;
+}
+
 .center {
   display: flex;
   justify-content: center;

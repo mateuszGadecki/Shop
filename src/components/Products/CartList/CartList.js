@@ -15,6 +15,9 @@ const cartList = (props) => {
       <button
         onClick={() => {
           props.removeItemHandler(props.cartItemDetails.orderDetails.id);
+          props.updateTotalPriceOnDelete(
+            props.cartItemDetails.orderDetails.price
+          );
         }}
         className={classes.removeButton}
       >

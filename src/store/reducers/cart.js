@@ -33,6 +33,15 @@ const setTotalPrice = (state, action) => {
   };
 };
 
+const updateTotalPriceOnDelete = (state, action) => {
+  let currentPrice = [state.totalPrice];
+  let updatePrice = currentPrice - action.price - 15;
+  return {
+    ...state,
+    totalPrice: updatePrice,
+  };
+};
+
 const removeCartItem = (state, action) => {
   let currentItems = [...state.cartItems];
   console.log(action.id);
@@ -53,6 +62,8 @@ const reducer = (state = initialState, action) => {
       return setCart(state, action);
     case actionTypes.SET_TOTAL_PRICE:
       return setTotalPrice(state, action);
+    case actionTypes.UPDATE_TOTAL_PRICE_ON_DELETE:
+      return updateTotalPriceOnDelete(state, action);
     case actionTypes.REMOVE_CART_ITEM:
       return removeCartItem(state, action);
     default:

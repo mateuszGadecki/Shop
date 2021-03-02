@@ -17,6 +17,12 @@ export const setTotalPrice = () => {
     type: actionTypes.SET_TOTAL_PRICE,
   };
 };
+export const updateTotalPriceOnDelete = (price) => {
+  return {
+    type: actionTypes.UPDATE_TOTAL_PRICE_ON_DELETE,
+    price: price,
+  };
+};
 
 export const cartPost = (orderProps) => {
   return (dispatch) => {
