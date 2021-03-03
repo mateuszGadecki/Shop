@@ -1,9 +1,9 @@
 import React, { Component } from "react";
 
 import classes from "./AccountForm.module.css";
-import Input from "../UI/Input/Input";
-import Button from "../UI/Button/Button";
-import Title from "../UI/Title/Title";
+import Input from "../../../components/UI/Input/Input";
+import Button from "../../../components/UI/Button/Button";
+import Title from "../../../components/UI/Title/Title";
 
 class AccountForm extends Component {
   state = {

@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import classes from "./Account.module.css";
-import AccountForm from "../../components/AccountForm/AccountForm";
+import AccountForm from "./AccountForm/AccountForm";
 
 class Account extends Component {
   render() {

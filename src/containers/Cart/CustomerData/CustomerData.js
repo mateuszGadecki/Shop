@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 import classes from "./CustomerData.module.css";
 import Input from "../../../components/UI/Input/Input";
@@ -108,10 +109,22 @@ class CustomerData extends Component {
       },
     },
     formIsValid: false,
+    proceedPage: false,
+  };
+
+  renderProceedPage = () => {
+    if (this.state.proceedPage) {
+      return <Redirect push to="/proceed" />;
+    }
   };
 
   orderHandler = (event) => {
     event.preventDefault();
+    if (this.state.formIsValid) {
+      this.setState({
+        proceedPage: true,
+      });
+    }
   };
   checkValidity(value, rules) {
     let isValid = true;
@@ -218,7 +231,6 @@ class CustomerData extends Component {
         })}
       </div>
     );
-    console.log(firstHalfInputs);
     return (
       <div>
         <div className={classes.customerDataTitle}>
@@ -232,6 +244,7 @@ class CustomerData extends Component {
           <div className={classes.customerDataForm}>{secondHalfInputs}</div>
           <div></div>
           <div className={classes.customerDataSubmit}>
+            {this.renderProceedPage()}
             <Button type="submit">KUPUJĘ I PŁACĘ</Button>
           </div>
         </form>
