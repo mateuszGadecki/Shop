@@ -3,7 +3,7 @@
   position: relative;
   margin-bottom: 4.5rem;
 }
-input {
+.inputBlue {
   font-size: 1.8rem;
   padding: 1rem 1rem 1rem 0.5rem;
   display: block;
@@ -13,12 +13,12 @@ input {
   background: #f1f1f1;
   box-sizing: border-box;
 }
-input:focus {
+.inputBlue:focus {
   outline: none;
 }
 
 /* LABEL ======================================= */
-label {
+.labelBlue {
   color: #999;
   font-size: 1.8rem;
   font-weight: normal;
@@ -32,21 +32,22 @@ label {
 }
 
 /* active state */
-input:focus ~ label,
-input:valid ~ label {
+.inputBlue:focus ~ .labelBlue,
+.inputBlue:valid ~ .labelBlue {
   top: -20px;
   font-size: 1.4rem;
   color: #5264ae;
 }
 
 /* BOTTOM BARS ================================= */
-.bar {
+/* Blue bar ================================= */
+.barBlue {
   position: relative;
   display: block;
   width: 400px;
 }
-.bar:before,
-.bar:after {
+.barBlue:before,
+.barBlue:after {
   content: "";
   height: 2px;
   width: 0;
@@ -57,21 +58,22 @@ input:valid ~ label {
   -moz-transition: 0.2s ease all;
   -webkit-transition: 0.2s ease all;
 }
-.bar:before {
+.barBlue:before {
   left: 50%;
 }
-.bar:after {
+.barBlue:after {
   right: 50%;
 }
 
 /* active state */
-input:focus ~ .bar:before,
-input:focus ~ .bar:after {
+.inputBlue:focus ~ .barBlue:before,
+.inputBlue:focus ~ .barBlue:after {
   width: 50%;
 }
 
 /* HIGHLIGHTER ================================== */
-.highlight {
+/* Highlighter blue ================================== */
+.highlightBlue {
   position: absolute;
   height: 60%;
   width: 100px;
@@ -82,14 +84,14 @@ input:focus ~ .bar:after {
 }
 
 /* active state */
-input:focus ~ .highlight {
-  -webkit-animation: inputHighlighter 0.3s ease;
-  -moz-animation: inputHighlighter 0.3s ease;
-  animation: inputHighlighter 0.3s ease;
+.inputBlue:focus ~ .highlightBlue {
+  -webkit-animation: inputHighlighterBlue 0.3s ease;
+  -moz-animation: inputHighlighterBlue 0.3s ease;
+  animation: inputHighlighterBlue 0.3s ease;
 }
 
 /* ANIMATIONS ================ */
-@-webkit-keyframes inputHighlighter {
+@-webkit-keyframes inputHighlighterBlue {
   from {
     background: #5264ae;
   }
@@ -98,7 +100,7 @@ input:focus ~ .highlight {
     background: transparent;
   }
 }
-@-moz-keyframes inputHighlighter {
+@-moz-keyframes inputHighlighterBlue {
   from {
     background: #5264ae;
   }
@@ -107,9 +109,123 @@ input:focus ~ .highlight {
     background: transparent;
   }
 }
-@keyframes inputHighlighter {
+@keyframes inputHighlighterBlue {
   from {
     background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+.inputRed {
+  font-size: 1.8rem;
+  padding: 1rem 1rem 1rem 0.5rem;
+  display: block;
+  width: 400px;
+  border: none;
+  border-bottom: 1px solid #757575;
+  background: #f1f1f1;
+  box-sizing: border-box;
+}
+.inputRed:focus {
+  outline: none;
+}
+
+/* LABEL ======================================= */
+.labelRed {
+  color: #999;
+  font-size: 1.8rem;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 0.5rem;
+  top: 1rem;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.inputRed:focus ~ .labelRed,
+.inputRed:valid ~ .labelRed {
+  top: -20px;
+  font-size: 1.4rem;
+  color: red;
+}
+
+/* Red bar ================================= */
+.barRed {
+  position: relative;
+  display: block;
+  width: 400px;
+}
+.barRed:before,
+.barRed:after {
+  content: "";
+  height: 2px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: red;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+.barRed:before {
+  left: 50%;
+}
+.barRed:after {
+  right: 50%;
+}
+
+/* active state */
+.inputRed:focus ~ .barRed:before,
+.inputRed:focus ~ .barRed:after {
+  width: 50%;
+}
+
+/* Highlighter red ================================== */
+.highlightRed {
+  position: absolute;
+  height: 60%;
+  width: 100px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+.inputRed:focus ~ .highlightRed {
+  -webkit-animation: inputHighlighterRed 0.3s ease;
+  -moz-animation: inputHighlighterRed 0.3s ease;
+  animation: inputHighlighterRed 0.3s ease;
+}
+
+/* ANIMATIONS ================ */
+@-webkit-keyframes inputHighlighterRed {
+  from {
+    background: red;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighterRed {
+  from {
+    background: red;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighterRed {
+  from {
+    background: red;
   }
   to {
     width: 0;
