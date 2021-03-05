@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
+import * as actions from "../../../store/actions/index";
 import classes from "./CustomerData.module.css";
 import Input from "../../../components/UI/Input/Input";
 import Title from "../../../components/UI/Title/Title";
@@ -112,51 +114,62 @@ class CustomerData extends Component {
     proceedPage: false,
   };
 
+  /*==================== Redirection to proceedPage ==================== */
   renderProceedPage = () => {
     if (this.state.proceedPage) {
       return <Redirect push to="/proceed" />;
     }
   };
-
+  /*==================== Calling redirect, Creating an object with orderData ==================== */
   orderHandler = (event) => {
     event.preventDefault();
     if (this.state.formIsValid) {
       this.setState({
         proceedPage: true,
       });
+      const cartItems = this.props.cartItems;
+      const totalPrice = this.props.totalPrice;
+      const orderData = [];
+      const customerData = {
+        firstName: this.state.customerForm.firstName.value,
+        lastName: this.state.customerForm.lastName.value,
+        email: this.state.customerForm.email.value,
+        phoneNumber: this.state.customerForm.phone.value,
+        city: this.state.customerForm.city.value,
+        zip: this.state.customerForm.zip.value,
+        street: this.state.customerForm.street.value,
+        houseNumber: this.state.customerForm.houseNumber.value,
+      };
+      for (let key in cartItems) {
+        orderData.push({
+          producer: cartItems[key].orderDetails.producent,
+          productName: cartItems[key].orderDetails.productName,
+          price: cartItems[key].orderDetails.price,
+          smallImage: cartItems[key].orderDetails.smallImage,
+        });
+      }
+      /*==================== Post the data to the Firebase ==================== */
+      this.props.onPurchaseOrder(orderData, customerData, totalPrice);
     }
   };
+  /*==================== Checking the correctness of entered data by the user ==================== */
   checkValidity(value, rules) {
     let isValid = true;
-    if (!rules) {
-      return true;
-    }
-
-    if (rules.required) {
-      isValid = value.trim() !== "" && isValid;
-    }
-
-    if (rules.minLength) {
-      isValid = value.length >= rules.minLength && isValid;
-    }
-
-    if (rules.maxLength) {
-      isValid = value.length <= rules.maxLength && isValid;
-    }
-
+    if (!rules) return true;
+    if (rules.required) isValid = value.trim() !== "" && isValid;
+    if (rules.minLength) isValid = value.length >= rules.minLength && isValid;
+    if (rules.maxLength) isValid = value.length <= rules.maxLength && isValid;
     if (rules.isEmail) {
       const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
       isValid = pattern.test(value) && isValid;
     }
-
     if (rules.isNumeric) {
       const pattern = /^\d+$/;
       isValid = pattern.test(value) && isValid;
     }
-
     return isValid;
   }
-
+  /*==================== State update based on user input ==================== */
   inputChangedHandler = (event, inputIdentifier) => {
     const updatedCustomerForm = {
       ...this.state.customerForm,
@@ -182,6 +195,7 @@ class CustomerData extends Component {
   };
 
   render() {
+    /*==================== Creating an array based on the state that renders the inputs ==================== */
     const formElementsArray = [];
     for (let key in this.state.customerForm) {
       formElementsArray.push({
@@ -190,9 +204,11 @@ class CustomerData extends Component {
         label: this.state.customerForm[key].label,
       });
     }
+    /*==================== Split array with inputs details into two parts ==================== */
     const half = Math.ceil(formElementsArray.length / 2);
     const firstHalf = formElementsArray.splice(0, half);
     const secondHalf = formElementsArray.splice(-half);
+    /*==================== Creating the first container with inputs by mapping ==================== */
     let firstHalfInputs = (
       <div>
         {firstHalf.map((formElement) => {
@@ -212,6 +228,7 @@ class CustomerData extends Component {
         })}
       </div>
     );
+    /*==================== Creating the second container with inputs by mapping ==================== */
     let secondHalfInputs = (
       <div>
         {secondHalf.map((formElement) => {
@@ -253,4 +270,18 @@ class CustomerData extends Component {
   }
 }
 
-export default CustomerData;
+const mapStateToProps = (state) => {
+  return {
+    cartItems: state.cart.cartItems,
+    totalPrice: state.cart.totalPrice,
+  };
+};
+
+const mapDispatchToProps = (dispatch) => {
+  return {
+    onPurchaseOrder: (orderData, customerData, totalPrice) =>
+      dispatch(actions.purchaseOrder(orderData, customerData, totalPrice)),
+  };
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(CustomerData);

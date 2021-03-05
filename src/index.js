@@ -11,6 +11,7 @@ import reportWebVitals from "./reportWebVitals";
 import offerReducer from "./store/reducers/offer";
 import cartReducer from "./store/reducers/cart";
 import authReducer from "./store/reducers/auth";
+import orderReducer from "./store/reducers/order";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
@@ -18,6 +19,7 @@ const rootReducer = combineReducers({
   offer: offerReducer,
   cart: cartReducer,
   auth: authReducer,
+  order: orderReducer,
 });
 
 const store = createStore(
