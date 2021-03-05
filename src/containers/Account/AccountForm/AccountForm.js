@@ -48,12 +48,24 @@ class AccountForm extends Component {
       },
     },
     formIsValid: false,
+    isSignUp: false,
   };
   loginSubmitHandler = (event) => {
     event.preventDefault();
     this.props.onAuth(
       this.state.loginForm.email.value,
-      this.state.loginForm.password.value
+      this.state.loginForm.password.value,
+      this.state.isSignUp,
+      null
+    );
+  };
+  registerSubmitHandler = (event) => {
+    event.preventDefault();
+    this.props.onAuth(
+      this.state.loginForm.email.value,
+      this.state.loginForm.password.value,
+      this.state.isSignUp,
+      this.state.loginForm.name.value
     );
   };
   checkValidity(value, rules) {
@@ -107,10 +119,12 @@ class AccountForm extends Component {
 
   showRegisterForm = () => {
     this.setState({ register: true });
+    this.setState({ isSignUp: true });
   };
 
   showLogInForm = () => {
     this.setState({ register: false });
+    this.setState({ isSignUp: false });
   };
 
   render() {
@@ -124,7 +138,10 @@ class AccountForm extends Component {
     let formContent;
     if (this.state.register) {
       formContent = (
-        <form className={classes.registerContainer}>
+        <form
+          onSubmit={this.registerSubmitHandler}
+          className={classes.registerContainer}
+        >
           <div>
             <div className={classes.AccountFormTitle}>
               <Title fontSize="3.3rem">Rejestracja</Title>
