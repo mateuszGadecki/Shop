@@ -4,6 +4,7 @@ import classes from "./AccountForm.module.css";
 import Input from "../../../components/UI/Input/Input";
 import Button from "../../../components/UI/Button/Button";
 import Title from "../../../components/UI/Title/Title";
+import Spinner from "../../../components/UI/Spinner/Spinner";
 
 class AccountForm extends Component {
   state = {
@@ -49,9 +50,15 @@ class AccountForm extends Component {
     },
     formIsValid: false,
     isSignUp: false,
+    errorMessage: null,
   };
+  /*==================== Submit Handlers for login and register forms ==================== */
   loginSubmitHandler = (event) => {
     event.preventDefault();
+    if (this.props.error) {
+      this.setState({ errorMessage: this.props.error.message });
+    }
+
     this.props.onAuth(
       this.state.loginForm.email.value,
       this.state.loginForm.password.value,
@@ -61,6 +68,9 @@ class AccountForm extends Component {
   };
   registerSubmitHandler = (event) => {
     event.preventDefault();
+    if (this.props.error) {
+      this.setState({ errorMessage: this.props.error.message });
+    }
     this.props.onAuth(
       this.state.loginForm.email.value,
       this.state.loginForm.password.value,
@@ -68,6 +78,7 @@ class AccountForm extends Component {
       this.state.loginForm.name.value
     );
   };
+  /*==================== Checking the correctness of entered data by the user ==================== */
   checkValidity(value, rules) {
     let isValid = true;
     if (!rules) {
@@ -93,6 +104,7 @@ class AccountForm extends Component {
 
     return isValid;
   }
+  /*==================== State update based on user input ==================== */
   inputChangedHandler = (event, inputIdentifier) => {
     const updatedloginForm = {
       ...this.state.loginForm,
@@ -116,26 +128,38 @@ class AccountForm extends Component {
       formIsValid: formIsValid,
     });
   };
-
+  /*========== Switching between login and register form ========== */
   showRegisterForm = () => {
     this.setState({ register: true });
     this.setState({ isSignUp: true });
+    this.setState({ errorMessage: null });
   };
 
   showLogInForm = () => {
     this.setState({ register: false });
     this.setState({ isSignUp: false });
+    this.setState({ errorMessage: null });
   };
 
   render() {
+    /*==================== Conditionaly assigning an error message to variable ==================== */
+    let errorMessage, formContent;
     const formElementsArray = [];
+    if (this.props.error) {
+      if (this.props.error.code !== 200)
+        errorMessage = <p>{this.state.errorMessage}</p>;
+    }
+    /*==================== Displaying spinner based on state ==================== */
+    if (this.props.loading) formContent = <Spinner />;
+
+    /*==================== Creating an array based on the state that renders the inputs ==================== */
     for (let key in this.state.loginForm) {
       formElementsArray.push({
         id: key,
         config: this.state.loginForm[key],
       });
     }
-    let formContent;
+    /*==================== Assigning the login/register form to a variable based on the state ==================== */
     if (this.state.register) {
       formContent = (
         <form
@@ -147,6 +171,7 @@ class AccountForm extends Component {
               <Title fontSize="3.3rem">Rejestracja</Title>
             </div>
           </div>
+          <div className={classes.error}>{errorMessage}</div>
           <div className={classes.input}>
             <Input
               elementConfig={formElementsArray[0].config.elementConfig}
@@ -213,6 +238,7 @@ class AccountForm extends Component {
               <Title fontSize="3.3rem">Logowanie</Title>
             </div>
           </div>
+          <div className={classes.error}>{errorMessage}</div>
           <div className={classes.input}>
             <Input
               elementConfig={formElementsArray[1].config.elementConfig}
@@ -239,6 +265,7 @@ class AccountForm extends Component {
               label="Hasło"
             />
           </div>
+
           <div className={classes.buttonsContainer}>
             <div className={classes.buttonContainer}>
               <p>Nie posiadasz konta?</p>
@@ -256,6 +283,7 @@ class AccountForm extends Component {
         </form>
       );
     }
+
     return <div className={classes.AccountForm}>{formContent}</div>;
   }
 }

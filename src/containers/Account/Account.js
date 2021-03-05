@@ -9,11 +9,22 @@ class Account extends Component {
   render() {
     return (
       <div className={classes.Account}>
-        <AccountForm onAuth={this.props.onAuth} />
+        <AccountForm
+          error={this.props.error}
+          loading={this.props.loading}
+          onAuth={this.props.onAuth}
+        />
       </div>
     );
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    error: state.auth.error,
+    loading: state.auth.loading,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -22,4 +33,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default connect(null, mapDispatchToProps)(Account);
+export default connect(mapStateToProps, mapDispatchToProps)(Account);

@@ -18,14 +18,14 @@
   width: 80%;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 25% 25% 25% 25%;
+  grid-template-rows: 20% 8% 24% 24% 24%;
 }
 .registerContainer {
   padding: 60px 0;
   width: 80%;
   margin: 0 auto;
   display: grid;
-  grid-template-rows: 20% 20% 20% 20% 20%;
+  grid-template-rows: 15% 9% 19% 19% 19% 19%;
 }
 
 .input {
@@ -66,4 +66,12 @@
 .AccountFormButton:hover,
 .AccountFormButton:active {
   color: #84cdfa;
+}
+
+.error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: red;
+  font-size: 1.2rem;
 }
