@@ -6,3 +6,5 @@ export {
   removeCartItem,
   updateTotalPriceOnDelete,
 } from "./cart";
+
+export { auth } from "./auth";

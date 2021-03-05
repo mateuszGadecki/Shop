@@ -6,3 +6,7 @@ export const SET_CART = "SET_CART";
 export const SET_TOTAL_PRICE = "SET_TOTAL_PRICE";
 export const REMOVE_CART_ITEM = "REMOVE_CART_ITEM";
 export const UPDATE_TOTAL_PRICE_ON_DELETE = "UPDATE_TOTAL_PRICE_ON_DELETE";
+
+export const AUTH_START = "AUTH_START";
+export const AUTH_SUCCESS = "AUTH_SUCCESS";
+export const AUTH_FAIL = "AUTH_FAIL";

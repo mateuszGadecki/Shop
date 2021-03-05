@@ -21,15 +21,16 @@ class AccountForm extends Component {
         },
         valid: false,
       },
-      login: {
+      email: {
         elementConfig: {
           type: "text",
         },
         value: "",
         validation: {
           required: true,
+          isEmail: true,
           minLength: 5,
-          maxLength: 15,
+          maxLength: 20,
         },
         valid: false,
       },
@@ -48,6 +49,13 @@ class AccountForm extends Component {
     },
     formIsValid: false,
   };
+  loginSubmitHandler = (event) => {
+    event.preventDefault();
+    this.props.onAuth(
+      this.state.loginForm.email.value,
+      this.state.loginForm.password.value
+    );
+  };
   checkValidity(value, rules) {
     let isValid = true;
     if (!rules) {
@@ -64,6 +72,11 @@ class AccountForm extends Component {
 
     if (rules.maxLength) {
       isValid = value.length <= rules.maxLength && isValid;
+    }
+
+    if (rules.isEmail) {
+      const pattern = /[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?/;
+      isValid = pattern.test(value) && isValid;
     }
 
     return isValid;
@@ -111,7 +124,7 @@ class AccountForm extends Component {
     let formContent;
     if (this.state.register) {
       formContent = (
-        <div className={classes.registerContainer}>
+        <form className={classes.registerContainer}>
           <div>
             <div className={classes.AccountFormTitle}>
               <Title fontSize="3.3rem">Rejestracja</Title>
@@ -140,7 +153,7 @@ class AccountForm extends Component {
                 this.inputChangedHandler(event, formElementsArray[1].id)
               }
               background="#fff"
-              label="Login"
+              label="Email"
             />
           </div>
           <div className={classes.input}>
@@ -170,11 +183,14 @@ class AccountForm extends Component {
               <Button>Zarejestruj Się</Button>
             </div>
           </div>
-        </div>
+        </form>
       );
     } else {
       formContent = (
-        <div className={classes.logInContainer}>
+        <form
+          onSubmit={this.loginSubmitHandler}
+          className={classes.logInContainer}
+        >
           <div>
             <div className={classes.AccountFormTitle}>
               <Title fontSize="3.3rem">Logowanie</Title>
@@ -190,7 +206,7 @@ class AccountForm extends Component {
                 this.inputChangedHandler(event, formElementsArray[1].id)
               }
               background="#fff"
-              label="Login"
+              label="Email"
             />
           </div>
           <div className={classes.input}>
@@ -220,7 +236,7 @@ class AccountForm extends Component {
               <Button>Zaloguj Się</Button>
             </div>
           </div>
-        </div>
+        </form>
       );
     }
     return <div className={classes.AccountForm}>{formContent}</div>;
