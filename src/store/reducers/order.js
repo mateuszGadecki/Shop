@@ -3,6 +3,7 @@ import * as actionTypes from "../actions/actionTypes";
 const initialState = {
   orders: [],
   customerData: [],
+  fetchedOrders: [],
   loading: false,
   purchased: false,
   totalPrice: null,
@@ -42,6 +43,28 @@ const purchaseOrderFail = (state, action) => {
   };
 };
 
+const fetchOrdersStart = (state, action) => {
+  return {
+    ...state,
+    loading: true,
+  };
+};
+
+const fetchOrdersSuccess = (state, action) => {
+  return {
+    ...state,
+    loading: false,
+    fetchedOrders: action.orderData,
+  };
+};
+
+const fetchOrdersFail = (state, action) => {
+  return {
+    ...state,
+    loading: false,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.PURCHASE_ORDER_INIT:
@@ -52,6 +75,12 @@ const reducer = (state = initialState, action) => {
       return purchaseOrderSuccess(state, action);
     case actionTypes.PURCHASE_ORDER_FAIL:
       return purchaseOrderFail(state, action);
+    case actionTypes.FETCH_ORDERS_START:
+      return fetchOrdersStart(state, action);
+    case actionTypes.FETCH_ORDERS_SUCCESS:
+      return fetchOrdersSuccess(state, action);
+    case actionTypes.FETCH_ORDERS_FAIL:
+      return fetchOrdersFail(state, action);
     default:
       return state;
   }
