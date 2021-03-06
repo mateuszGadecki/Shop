@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, withRouter } from "react-router-dom";
+import { Route, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import classes from "./Cart.module.css";
@@ -13,6 +13,7 @@ import * as actions from "../../store/actions/index";
 class Cart extends Component {
   state = {
     customerData: false,
+    accountPage: false,
   };
 
   showCustomerDataForm = () => {
@@ -23,7 +24,41 @@ class Cart extends Component {
     this.props.history.replace("/cart/customer-data");
   };
 
+  redirectHandler = () => {
+    this.setState({ accountPage: true });
+  };
+  redirectToLogin = () => {
+    if (this.state.accountPage) {
+      return <Redirect to="/account" />;
+    }
+  };
+
   render() {
+    let button;
+    if (this.props.isAuthenticated) {
+      button = (
+        <Button
+          clicked={() => {
+            this.continueHandler();
+            this.showCustomerDataForm();
+          }}
+          fontSize="1.5rem"
+        >
+          Kontynuuj Zakupy
+        </Button>
+      );
+    } else {
+      button = (
+        <Button
+          clicked={() => {
+            this.redirectHandler();
+          }}
+          fontSize="1.5rem"
+        >
+          Zaloguj się aby kontunuować
+        </Button>
+      );
+    }
     let cart, cartTitles, cartSubmit, route;
     if (this.props.cartItems.length <= 0) {
       cart = <div className={classes.center}>Koszyk jest pusty</div>;
@@ -107,15 +142,8 @@ class Cart extends Component {
           <div className={classes.totalPrice}>
             Do zapłaty: {this.props.totalPrice} PLN
           </div>
-          <Button
-            clicked={() => {
-              this.continueHandler();
-              this.showCustomerDataForm();
-            }}
-            fontSize="1.5rem"
-          >
-            Kontynuuj Zakupy
-          </Button>
+          {this.redirectToLogin()}
+          {button}
         </div>
       );
     }
@@ -143,6 +171,7 @@ const mapStateToProps = (state) => {
   return {
     cartItems: state.cart.cartItems,
     totalPrice: state.cart.totalPrice,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 const mapDispatchToProps = (dispatch) => {

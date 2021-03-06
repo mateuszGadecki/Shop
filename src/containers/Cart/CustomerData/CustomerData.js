@@ -149,7 +149,12 @@ class CustomerData extends Component {
         });
       }
       /*==================== Post the data to the Firebase ==================== */
-      this.props.onPurchaseOrder(orderData, customerData, totalPrice);
+      this.props.onPurchaseOrder(
+        orderData,
+        customerData,
+        totalPrice,
+        this.props.token
+      );
     }
   };
   /*==================== Checking the correctness of entered data by the user ==================== */
@@ -274,13 +279,16 @@ const mapStateToProps = (state) => {
   return {
     cartItems: state.cart.cartItems,
     totalPrice: state.cart.totalPrice,
+    token: state.auth.token,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onPurchaseOrder: (orderData, customerData, totalPrice) =>
-      dispatch(actions.purchaseOrder(orderData, customerData, totalPrice)),
+    onPurchaseOrder: (orderData, customerData, totalPrice, token) =>
+      dispatch(
+        actions.purchaseOrder(orderData, customerData, totalPrice, token)
+      ),
   };
 };
 

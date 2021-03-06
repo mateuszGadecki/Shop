@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 
 import classes from "./AccountForm.module.css";
 import Input from "../../../components/UI/Input/Input";
@@ -31,7 +32,7 @@ class AccountForm extends Component {
           required: true,
           isEmail: true,
           minLength: 5,
-          maxLength: 20,
+          maxLength: 30,
         },
         valid: false,
       },
@@ -128,6 +129,7 @@ class AccountForm extends Component {
       formIsValid: formIsValid,
     });
   };
+
   /*========== Switching between login and register form ========== */
   showRegisterForm = () => {
     this.setState({ register: true });
@@ -143,7 +145,7 @@ class AccountForm extends Component {
 
   render() {
     /*==================== Conditionaly assigning an error message to variable ==================== */
-    let errorMessage, formContent;
+    let errorMessage, formContent, authRedirect;
     const formElementsArray = [];
     if (this.props.error) {
       if (this.props.error.code !== 200)
@@ -159,6 +161,10 @@ class AccountForm extends Component {
         config: this.state.loginForm[key],
       });
     }
+
+    if (this.props.isAuthenticated) {
+      authRedirect = <Redirect to="/" />;
+    }
     /*==================== Assigning the login/register form to a variable based on the state ==================== */
     if (this.state.register) {
       formContent = (
@@ -166,6 +172,7 @@ class AccountForm extends Component {
           onSubmit={this.registerSubmitHandler}
           className={classes.registerContainer}
         >
+          {authRedirect}
           <div>
             <div className={classes.AccountFormTitle}>
               <Title fontSize="3.3rem">Rejestracja</Title>
@@ -233,6 +240,7 @@ class AccountForm extends Component {
           onSubmit={this.loginSubmitHandler}
           className={classes.logInContainer}
         >
+          {authRedirect}
           <div>
             <div className={classes.AccountFormTitle}>
               <Title fontSize="3.3rem">Logowanie</Title>

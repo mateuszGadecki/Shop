@@ -10,21 +10,20 @@ import * as actions from "../../store/actions/index";
 
 class AccountDetails extends Component {
   componentDidMount() {
-    this.props.onFetchOrders();
+    this.props.onFetchOrders(this.props.token);
   }
   render() {
     let accountDetails = <Spinner />;
-    let customerName, accountData, fetchedOrderDetails;
+    let accountData, fetchedOrderDetails;
     if (!this.props.loading) {
       if (this.props.fetchedOrders.length > 0) {
-        customerName = this.props.fetchedOrders[0].customerData.firstName;
         accountData = this.props.fetchedOrders[0].customerData;
         fetchedOrderDetails = this.props.fetchedOrders;
       }
       accountDetails = (
         <div className={classes.accountContainers}>
           <div className={classes.greeting}>
-            <Title fontSize="3rem">Witaj {customerName}!</Title>
+            <Title fontSize="3rem">Witaj {this.props.customerName}!</Title>
           </div>
           <div className={classes.accountData}>
             <div className={classes.accountDataContainer}>
@@ -46,12 +45,14 @@ const mapStateToProps = (state) => {
   return {
     fetchedOrders: state.order.fetchedOrders,
     loading: state.order.loading,
+    token: state.auth.token,
+    customerName: state.auth.customerName,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFetchOrders: () => dispatch(actions.fetchOrders()),
+    onFetchOrders: (token) => dispatch(actions.fetchOrders(token)),
   };
 };
 

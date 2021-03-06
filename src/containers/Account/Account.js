@@ -10,6 +10,7 @@ class Account extends Component {
     return (
       <div className={classes.Account}>
         <AccountForm
+          isAuthenticated={this.props.isAuthenticated}
           error={this.props.error}
           loading={this.props.loading}
           onAuth={this.props.onAuth}
@@ -23,6 +24,7 @@ const mapStateToProps = (state) => {
   return {
     error: state.auth.error,
     loading: state.auth.loading,
+    isAuthenticated: state.auth.token !== null,
   };
 };
 

@@ -23,7 +23,7 @@ const accountInfo = (props) => {
       </div>
     );
   } else {
-    <div className={classes.noData}>Brak danych</div>;
+    accountInfo = <div className={classes.noData}>Brak danych</div>;
   }
   return (
     <div className={classes.accountInfo}>
