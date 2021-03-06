@@ -11,8 +11,8 @@ const navigationItems = (props) => (
     <NavigationItem link="/aboutUs">O nas</NavigationItem>
     <NavigationItem link="/offer">Oferta</NavigationItem>
     <NavigationItem link="/contact">Kontakt</NavigationItem>
-    <NavigationItem link="/account">Konto</NavigationItem>
     <NavigationItem link="/cart">Koszyk</NavigationItem>
+    <NavigationItem link="/account">Konto</NavigationItem>
   </ul>
 );
 
