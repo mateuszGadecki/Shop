@@ -1,0 +1,32 @@
+.accountInfo {
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 30% 70%;
+}
+
+.accountInfoTitle,
+.noData {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.dataContainer {
+  display: flex;
+  justify-content: center;
+}
+.noData {
+  font-size: 2.3rem;
+}
+
+.dataList {
+  font-size: 1.7rem;
+  font-weight: 300;
+  line-height: 145%;
+}
+
+.dataList li {
+  margin-top: 5px;
+}
