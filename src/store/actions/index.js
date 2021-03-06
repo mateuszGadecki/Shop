@@ -9,4 +9,4 @@ export {
 
 export { auth } from "./auth";
 
-export { purchaseOrder } from "./order";
+export { purchaseOrder, fetchOrders } from "./order";
