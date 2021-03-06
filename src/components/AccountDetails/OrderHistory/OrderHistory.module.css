@@ -1,0 +1,18 @@
+.orderHistory {
+  width: 95%;
+  height: 95%;
+  margin: auto;
+  display: grid;
+  grid-template-rows: 30% 70%;
+}
+
+.orderHistoryTitle,
+.noOrders {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.noOrders {
+  font-size: 2.3rem;
+}
