@@ -1,6 +1,7 @@
 import * as actionTypes from "../actions/actionTypes";
 
 const initialState = {
+  loading: false,
   currProducer: "Canon",
   currProduct: null,
   currProducts: {
@@ -54,6 +55,7 @@ const setProducts = (state, action) => {
   return {
     ...state,
     currProducts: products,
+    loading: false,
   };
 };
 
@@ -72,6 +74,19 @@ const setCurrProducer = (state, action) => {
   };
 };
 
+const initProductsStart = (state, action) => {
+  return {
+    ...state,
+    loading: true,
+  };
+};
+const initProductsFail = (state, action) => {
+  return {
+    ...state,
+    loading: false,
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_PRODUCTS:
@@ -80,6 +95,10 @@ const reducer = (state = initialState, action) => {
       return setCurrProduct(state, action);
     case actionTypes.SET_CURRENT_PRODUCER:
       return setCurrProducer(state, action);
+    case actionTypes.INIT_PRODUCTS_START:
+      return initProductsStart(state, action);
+    case actionTypes.INIT_PRODUCTS_FAIL:
+      return initProductsFail(state, action);
     default:
       return state;
   }
