@@ -5,6 +5,7 @@ const initialState = {
   userId: null,
   error: null,
   loading: false,
+  customerName: null,
 };
 
 const authStart = (state, action) => {

@@ -7,6 +7,6 @@ export {
   updateTotalPriceOnDelete,
 } from "./cart";
 
-export { auth } from "./auth";
+export { auth, logout } from "./auth";
 
 export { purchaseOrder, fetchOrders } from "./order";

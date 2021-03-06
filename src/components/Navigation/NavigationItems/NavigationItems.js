@@ -30,7 +30,7 @@ const navigationItems = (props) => {
         <NavigationItem link="/contact">Kontakt</NavigationItem>
         <NavigationItem link="/cart">Koszyk</NavigationItem>
         <NavigationItem link="/account-details">Konto</NavigationItem>
-        <NavigationItem link="/#">Wyloguj się</NavigationItem>
+        <NavigationItem link="/logout">Wyloguj się</NavigationItem>
       </Aux>
     );
   }

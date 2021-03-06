@@ -11,12 +11,16 @@ import Properties from "./components/Properties/Properties";
 import Cart from "./containers/Cart/Cart";
 import Account from "./containers/Account/Account";
 import AccountDetails from "./containers/AccountDetails/AccountDetails";
+import Logout from "./containers/Account/Logout/Logout";
 
 class App extends Component {
   render() {
     return (
       <Layout>
         <Switch>
+          <Route path="/logout">
+            <Logout />
+          </Route>
           <Route path="/account">
             <Account />
           </Route>
