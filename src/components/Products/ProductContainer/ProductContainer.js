@@ -12,7 +12,6 @@ import * as actions from "../../../store/actions/index";
 class ProductContainer extends Component {
   state = {
     propertiesPage: false,
-    cartPage: false,
   };
 
   setProperties = () => {
@@ -20,19 +19,10 @@ class ProductContainer extends Component {
       propertiesPage: true,
     });
   };
-  setCart = () => {
-    this.setState({
-      cartPage: true,
-    });
-  };
+
   renderProperties = () => {
     if (this.state.propertiesPage) {
       return <Redirect push to="/properties" />;
-    }
-  };
-  renderCart = () => {
-    if (this.state.cartPage) {
-      return <Redirect push to="/cart" />;
     }
   };
 
@@ -72,12 +62,10 @@ class ProductContainer extends Component {
               </Button>
             </div>
             <div className={classes.ButtonContainer}>
-              {this.renderCart()}
               <Button
                 fontSize="1.4rem"
                 clicked={() => {
                   this.addToCartHandler();
-                  this.setCart();
                   this.props.onSetTotalPrice();
                 }}
               >

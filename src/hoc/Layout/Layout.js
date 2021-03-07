@@ -29,6 +29,7 @@ class Layout extends Component {
         <Toolbar
           isAuth={this.props.isAuthenticated}
           drawerToggleClicked={this.sideDrawerToggleHandler}
+          cartItems={this.props.cartItems.length}
         />
         <SideDrawer
           isAuth={this.props.isAuthenticated}
@@ -45,6 +46,7 @@ class Layout extends Component {
 const mapStateToProps = (state) => {
   return {
     isAuthenticated: state.auth.token !== null,
+    cartItems: state.cart.cartItems,
   };
 };
 

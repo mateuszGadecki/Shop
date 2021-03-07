@@ -14,3 +14,19 @@
     flex-flow: row;
   }
 }
+
+.cartItems {
+  position: absolute;
+  left: 105%;
+  top: 70%;
+  color: #fff;
+  font-size: 1.3rem;
+  font-weight: 600;
+  background-color: #f07e6e;
+  border-radius: 80%;
+  width: 18px;
+  height: 85%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

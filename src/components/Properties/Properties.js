@@ -9,7 +9,6 @@ import * as actions from "../../store/actions/index";
 class Properties extends Component {
   state = {
     offerPage: false,
-    cartPage: false,
   };
 
   setOffer = () => {
@@ -20,17 +19,6 @@ class Properties extends Component {
   renderOfferPage = () => {
     if (this.state.offerPage) {
       return <Redirect push to="/offer" />;
-    }
-  };
-
-  setCart = () => {
-    this.setState({
-      cartPage: true,
-    });
-  };
-  renderCart = () => {
-    if (this.state.cartPage) {
-      return <Redirect push to="/cart" />;
     }
   };
 
@@ -72,10 +60,8 @@ class Properties extends Component {
               <p>+48 123-456-789</p>
               <p>Razem: {this.props.currProduct.price + 15} PLN</p>
               <div>
-                {this.renderCart()}
                 <Button
                   clicked={() => {
-                    this.setCart();
                     this.addToCartHandler();
                     this.props.onSetTotalPrice();
                   }}

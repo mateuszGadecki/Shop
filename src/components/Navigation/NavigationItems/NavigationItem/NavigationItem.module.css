@@ -6,6 +6,7 @@
   width: auto;
   margin: 5px 30px;
   font-size: 1.6rem;
+  position: relative;
 }
 
 .NavigationItem a {

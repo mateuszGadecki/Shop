@@ -5,7 +5,13 @@ import NavigationItem from "./NavigationItem/NavigationItem";
 import Aux from "../../../hoc/Aux/Aux";
 
 const navigationItems = (props) => {
-  let navigationItems;
+  let navigationItems, cartItems, cartItemsClass;
+  cartItems = props.cartItems;
+  cartItemsClass = classes.cartItems;
+  if (cartItems === 0) {
+    cartItems = null;
+    cartItemsClass = null;
+  }
   if (!props.isAuthenticated) {
     navigationItems = (
       <Aux>
@@ -15,7 +21,10 @@ const navigationItems = (props) => {
         <NavigationItem link="/aboutUs">O nas</NavigationItem>
         <NavigationItem link="/offer">Oferta</NavigationItem>
         <NavigationItem link="/contact">Kontakt</NavigationItem>
-        <NavigationItem link="/cart">Koszyk</NavigationItem>
+        <NavigationItem link="/cart">
+          Koszyk <div className={cartItemsClass}>{cartItems}</div>
+        </NavigationItem>
+
         <NavigationItem link="/account">Zaloguj się</NavigationItem>
       </Aux>
     );
@@ -28,7 +37,9 @@ const navigationItems = (props) => {
         <NavigationItem link="/aboutUs">O nas</NavigationItem>
         <NavigationItem link="/offer">Oferta</NavigationItem>
         <NavigationItem link="/contact">Kontakt</NavigationItem>
-        <NavigationItem link="/cart">Koszyk</NavigationItem>
+        <NavigationItem link="/cart">
+          Koszyk <div className={cartItemsClass}>{cartItems}</div>
+        </NavigationItem>
         <NavigationItem link="/account-details">Konto</NavigationItem>
         <NavigationItem link="/logout">Wyloguj się</NavigationItem>
       </Aux>
