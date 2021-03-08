@@ -1,19 +1,21 @@
-.footerItems {
+.footerItems a {
   display: block;
   margin-bottom: 4px;
   font-size: 1.3rem;
   cursor: pointer;
   transition: all 0.2s;
   width: 100%;
+  color: #000;
+  text-decoration: none;
 }
 
-.footerItems:hover,
-.footerItems:active {
+.footerItems:hover a,
+.footerItems:active a {
   color: dodgerblue;
   transform: scale(1.05);
 }
 @media (max-width: 650px) {
-  .footerItems {
+  .footerItems a {
     font-size: 1.1rem;
   }
 }

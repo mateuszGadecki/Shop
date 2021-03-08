@@ -37,7 +37,7 @@ class Layout extends Component {
           closed={this.sideDrawerClosedHandler}
         />
         <main className={classes.Content}>{this.props.children}</main>
-        <Footer />
+        <Footer isAuth={this.props.isAuthenticated} />
       </Aux>
     );
   }
