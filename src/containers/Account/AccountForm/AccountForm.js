@@ -38,7 +38,7 @@ class AccountForm extends Component {
       },
       password: {
         elementConfig: {
-          type: "text",
+          type: "password",
         },
         value: "",
         validation: {

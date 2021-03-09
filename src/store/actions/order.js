@@ -23,11 +23,18 @@ export const purchaseOrderFail = (error) => {
   };
 };
 
-export const purchaseOrder = (orderData, customerData, totalPrice, token) => {
+export const purchaseOrder = (
+  orderData,
+  customerData,
+  totalPrice,
+  token,
+  userId
+) => {
   const data = {
     totalPrice: totalPrice,
     customerData: customerData,
     orderData: orderData,
+    userId: userId,
   };
   return (dispatch) => {
     dispatch(purchaseOrderStart());
@@ -80,13 +87,15 @@ export const fetchOrdersFail = (error) => {
   };
 };
 
-export const fetchOrders = (token) => {
+export const fetchOrders = (token, userId) => {
   return (dispatch) => {
     dispatch(fetchOrdersStart());
+    const queryParams =
+      "?auth=" + token + '&orderBy="userId"&equalTo="' + userId + '"';
     axios
       .get(
-        "https://flume-shop-default-rtdb.firebaseio.com/Orders.json?auth=" +
-          token
+        "https://flume-shop-default-rtdb.firebaseio.com/Orders.json" +
+          queryParams
       )
       .then((res) => {
         const fetchedOrders = [];

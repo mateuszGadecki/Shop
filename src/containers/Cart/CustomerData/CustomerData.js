@@ -129,6 +129,7 @@ class CustomerData extends Component {
       });
       const cartItems = this.props.cartItems;
       const totalPrice = this.props.totalPrice;
+      const userId = this.props.userId;
       const orderData = [];
       const customerData = {
         firstName: this.state.customerForm.firstName.value,
@@ -153,7 +154,8 @@ class CustomerData extends Component {
         orderData,
         customerData,
         totalPrice,
-        this.props.token
+        this.props.token,
+        userId
       );
     }
   };
@@ -280,14 +282,21 @@ const mapStateToProps = (state) => {
     cartItems: state.cart.cartItems,
     totalPrice: state.cart.totalPrice,
     token: state.auth.token,
+    userId: state.auth.userId,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onPurchaseOrder: (orderData, customerData, totalPrice, token) =>
+    onPurchaseOrder: (orderData, customerData, totalPrice, token, userId) =>
       dispatch(
-        actions.purchaseOrder(orderData, customerData, totalPrice, token)
+        actions.purchaseOrder(
+          orderData,
+          customerData,
+          totalPrice,
+          token,
+          userId
+        )
       ),
   };
 };

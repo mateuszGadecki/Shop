@@ -10,7 +10,7 @@ import * as actions from "../../store/actions/index";
 
 class AccountDetails extends Component {
   componentDidMount() {
-    this.props.onFetchOrders(this.props.token);
+    this.props.onFetchOrders(this.props.token, this.props.userId);
   }
   render() {
     let accountDetails = <Spinner />;
@@ -47,12 +47,14 @@ const mapStateToProps = (state) => {
     loading: state.order.loading,
     token: state.auth.token,
     customerName: state.auth.customerName,
+    userId: state.auth.userId,
   };
 };
 
 const mapDispatchToProps = (dispatch) => {
   return {
-    onFetchOrders: (token) => dispatch(actions.fetchOrders(token)),
+    onFetchOrders: (token, userId) =>
+      dispatch(actions.fetchOrders(token, userId)),
   };
 };
 
