@@ -56,6 +56,13 @@ const removeCartItem = (state, action) => {
   };
 };
 
+const clearCart = (state, action) => {
+  return {
+    ...state,
+    cartItems: [],
+  };
+};
+
 const reducer = (state = initialState, action) => {
   switch (action.type) {
     case actionTypes.SET_CART:
@@ -66,6 +73,8 @@ const reducer = (state = initialState, action) => {
       return updateTotalPriceOnDelete(state, action);
     case actionTypes.REMOVE_CART_ITEM:
       return removeCartItem(state, action);
+    case actionTypes.CLEAR_CART:
+      return clearCart(state, action);
     default:
       return state;
   }

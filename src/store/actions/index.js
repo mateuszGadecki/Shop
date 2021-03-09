@@ -5,6 +5,7 @@ export {
   setTotalPrice,
   removeCartItem,
   updateTotalPriceOnDelete,
+  clearCart,
 } from "./cart";
 
 export { auth, logout, authCheckState } from "./auth";

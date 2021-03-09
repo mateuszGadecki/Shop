@@ -157,6 +157,8 @@ class CustomerData extends Component {
         this.props.token,
         userId
       );
+      /*==================== Clear Cart ==================== */
+      this.props.onClearCart();
     }
   };
   /*==================== Checking the correctness of entered data by the user ==================== */
@@ -298,6 +300,7 @@ const mapDispatchToProps = (dispatch) => {
           userId
         )
       ),
+    onClearCart: () => dispatch(actions.clearCart()),
   };
 };
 

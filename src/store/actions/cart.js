@@ -12,6 +12,13 @@ export const removeCartItem = (id) => {
     id: id,
   };
 };
+
+export const clearCart = () => {
+  return {
+    type: actionTypes.CLEAR_CART,
+  };
+};
+
 export const setTotalPrice = () => {
   return {
     type: actionTypes.SET_TOTAL_PRICE,
