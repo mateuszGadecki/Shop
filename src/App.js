@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Route, Switch, withRouter } from "react-router-dom";
+import { Route, Switch, withRouter, Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 
 import Layout from "./hoc/Layout/Layout";
@@ -21,8 +21,38 @@ class App extends Component {
   }
 
   render() {
-    return (
-      <Layout>
+    let routes = (
+      <Switch>
+        <Route path="/account">
+          <Account />
+        </Route>
+        <Route path="/offer">
+          <Offer />
+        </Route>
+        <Route path="/cart">
+          <Cart />
+        </Route>
+        <Route path="/properties">
+          <Properties />
+        </Route>
+        <Route path="/aboutUs">
+          <AboutUs />
+        </Route>
+        <Route path="/proceed">
+          <Proceed />
+        </Route>
+        <Route path="/contact">
+          <Contact />
+        </Route>
+        <Route path="/" exact>
+          <HomePage />
+        </Route>
+        <Redirect to="/" />
+      </Switch>
+    );
+
+    if (this.props.isAuthenticated) {
+      routes = (
         <Switch>
           <Route path="/logout">
             <Logout />
@@ -54,11 +84,19 @@ class App extends Component {
           <Route path="/" exact>
             <HomePage />
           </Route>
+          <Redirect to="/" />
         </Switch>
-      </Layout>
-    );
+      );
+    }
+    return <Layout>{routes}</Layout>;
   }
 }
+
+const mapStateToProps = (state) => {
+  return {
+    isAuthenticated: state.auth.token !== null,
+  };
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
@@ -66,4 +104,4 @@ const mapDispatchToProps = (dispatch) => {
   };
 };
 
-export default withRouter(connect(null, mapDispatchToProps)(App));
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(App));
