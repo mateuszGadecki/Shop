@@ -29,9 +29,28 @@ const authSuccess = (state, action) => {
 };
 
 const authFail = (state, action) => {
+  let errorMes;
+  switch (action.error.message) {
+    case "EMAIL_EXISTS":
+      errorMes = "Adres email istnieje";
+      break;
+    case "INVALID_EMAIL":
+      errorMes = "Błędny adres email";
+      break;
+    case "EMAIL_NOT_FOUND":
+      errorMes = "Nie znaleziono podanego adresu email";
+      break;
+    case "WEAK_PASSWORD : Password should be at least 6 characters":
+      errorMes = "Hasło powinno mieć minimum 6 znaków";
+      break;
+    default:
+      errorMes = "Błąd";
+      break;
+  }
+  console.log(action.error.message);
   return {
     ...state,
-    error: action.error,
+    error: errorMes,
     loading: false,
   };
 };

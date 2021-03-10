@@ -57,7 +57,7 @@ class AccountForm extends Component {
   loginSubmitHandler = (event) => {
     event.preventDefault();
     if (this.props.error) {
-      this.setState({ errorMessage: this.props.error.message });
+      this.setState({ errorMessage: this.props.error });
     }
 
     this.props.onAuth(
@@ -70,7 +70,7 @@ class AccountForm extends Component {
   registerSubmitHandler = (event) => {
     event.preventDefault();
     if (this.props.error) {
-      this.setState({ errorMessage: this.props.error.message });
+      this.setState({ errorMessage: this.props.error });
     }
     this.props.onAuth(
       this.state.loginForm.email.value,
