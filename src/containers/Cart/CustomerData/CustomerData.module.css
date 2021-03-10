@@ -19,7 +19,18 @@
   flex-direction: column;
 }
 
+.customerDataInputContainer {
+  width: 70%;
+  margin: 0 auto;
+}
+
 .customerDataSubmit {
   display: flex;
   justify-content: center;
+}
+
+@media (max-width: 800px) {
+  .customerDataInputs {
+    grid-template-columns: 100%;
+  }
 }

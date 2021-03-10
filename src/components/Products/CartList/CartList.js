@@ -10,7 +10,7 @@ const cartList = (props) => {
         {props.cartItemDetails.orderDetails.productName}
       </div>
       <div>{props.cartItemDetails.orderDetails.price} PLN</div>
-      <div>1-2 dni robocze</div>
+      <div>1-2 dni</div>
       <div>15 PLN</div>
       <button
         onClick={() => {

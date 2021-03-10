@@ -219,7 +219,7 @@ class AccountForm extends Component {
             />
           </div>
           <div className={classes.buttonsContainer}>
-            <div className={classes.buttonContainer}>
+            <div className={classes.leftButtonContainer}>
               <p>Posiadasz konto?</p>
               <button
                 onClick={this.showLogInForm}
@@ -228,7 +228,7 @@ class AccountForm extends Component {
                 Zaloguj Się
               </button>
             </div>
-            <div className={classes.buttonContainer}>
+            <div className={classes.rightButtonContainer}>
               <Button>Zarejestruj Się</Button>
             </div>
           </div>
@@ -275,7 +275,7 @@ class AccountForm extends Component {
           </div>
 
           <div className={classes.buttonsContainer}>
-            <div className={classes.buttonContainer}>
+            <div className={classes.leftButtonContainer}>
               <p>Nie posiadasz konta?</p>
               <button
                 onClick={this.showRegisterForm}
@@ -284,7 +284,7 @@ class AccountForm extends Component {
                 Zarejestruj się
               </button>
             </div>
-            <div className={classes.buttonContainer}>
+            <div className={classes.rightButtonContainer}>
               <Button>Zaloguj Się</Button>
             </div>
           </div>

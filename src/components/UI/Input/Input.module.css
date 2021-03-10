@@ -8,7 +8,7 @@
   font-size: 1.8rem;
   padding: 1rem 1rem 1rem 0.5rem;
   display: block;
-  width: 400px;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #757575;
   background: #f1f1f1;
@@ -45,7 +45,7 @@
 .barBlue {
   position: relative;
   display: block;
-  width: 400px;
+  width: 100%;
 }
 .barBlue:before,
 .barBlue:after {
@@ -125,7 +125,7 @@
   font-size: 1.8rem;
   padding: 1rem 1rem 1rem 0.5rem;
   display: block;
-  width: 400px;
+  width: 100%;
   border: none;
   border-bottom: 1px solid #757575;
   background: #f1f1f1;
@@ -161,7 +161,7 @@
 .barRed {
   position: relative;
   display: block;
-  width: 400px;
+  width: 100%;
 }
 .barRed:before,
 .barRed:after {

@@ -47,7 +47,6 @@ const authFail = (state, action) => {
       errorMes = "Błąd";
       break;
   }
-  console.log(action.error.message);
   return {
     ...state,
     error: errorMes,

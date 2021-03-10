@@ -14,12 +14,6 @@
   grid-template-rows: auto;
 }
 
-.CartColumns div {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
 .CartSubmit {
   display: flex;
   justify-content: flex-end;
@@ -47,4 +41,31 @@
   display: flex;
   justify-content: center;
   font-size: 2.2rem;
+}
+
+.CartTitleContainer {
+  display: flex;
+  justify-content: center;
+  align-items: flex-end;
+  width: 90%;
+  margin: 0 auto;
+  height: 100%;
+}
+
+@media (max-width: 780px) {
+  .CartTitleContainer p {
+    font-size: 1.8rem !important;
+    display: block;
+    margin: auto auto;
+    width: auto;
+  }
+  .CartTitleContainer p::after {
+    width: 0;
+  }
+}
+@media (max-width: 650px) {
+  .CartColumns {
+    width: 100%;
+    margin: 0 auto;
+  }
 }

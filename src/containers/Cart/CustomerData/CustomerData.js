@@ -219,7 +219,7 @@ class CustomerData extends Component {
     const secondHalf = formElementsArray.splice(-half);
     /*==================== Creating the first container with inputs by mapping ==================== */
     let firstHalfInputs = (
-      <div>
+      <div className={classes.customerDataInputContainer}>
         {firstHalf.map((formElement) => {
           return (
             <Input
@@ -239,7 +239,7 @@ class CustomerData extends Component {
     );
     /*==================== Creating the second container with inputs by mapping ==================== */
     let secondHalfInputs = (
-      <div>
+      <div className={classes.customerDataInputContainer}>
         {secondHalf.map((formElement) => {
           return (
             <Input

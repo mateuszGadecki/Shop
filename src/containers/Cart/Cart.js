@@ -81,20 +81,20 @@ class Cart extends Component {
       });
       cartTitles = (
         <div className={classes.CartColumns}>
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Lista Produktów</Title>
           </div>
 
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Cena</Title>
           </div>
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Przewidywany Czas Dostawy</Title>
           </div>
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Koszt dostawy</Title>
           </div>
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Usuń</Title>
           </div>
         </div>
@@ -119,20 +119,20 @@ class Cart extends Component {
       });
       cartTitles = (
         <div className={classes.CartColumns}>
-          <div>
-            <Title fontSize="2.2rem">Lista Produktów</Title>
+          <div className={classes.CartTitleContainer}>
+            <Title fontSize="2.2rem">Produkty</Title>
           </div>
 
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Cena</Title>
           </div>
-          <div>
-            <Title fontSize="2.2rem">Przewidywany Czas Dostawy</Title>
+          <div className={classes.CartTitleContainer}>
+            <Title fontSize="2.2rem">Dostawa</Title>
           </div>
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Koszt dostawy</Title>
           </div>
-          <div>
+          <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Usuń</Title>
           </div>
         </div>
