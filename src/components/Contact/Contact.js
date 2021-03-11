@@ -17,10 +17,14 @@ const Contact = (props) => {
   return (
     <div className={classes.Contact}>
       <form className={classes.contactForm}>
-        <Title fontSize="4rem">Skontaktuj się z nami!</Title>
+        <Title>Skontaktuj się z nami!</Title>
         <span className={classes.margin}></span>
-        <Input label="Imię" />
-        <Input label="Adres email" />
+        <div className={classes.inputContactUs}>
+          <Input label="Imię" />
+        </div>
+        <div className={classes.inputContactUs}>
+          <Input label="Adres email" />
+        </div>
         <div className={classes.group}>
           <textarea required />
           <span className={classes.highlight}></span>

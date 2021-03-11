@@ -34,3 +34,10 @@
   justify-content: center;
   align-items: center;
 }
+
+@media (max-width: 590px) {
+  .ProductContainer {
+    height: 90%;
+    width: 90%;
+  }
+}

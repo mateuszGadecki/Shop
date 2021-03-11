@@ -45,6 +45,7 @@ class Properties extends Component {
             <div className={classes.bigImageContainer}>
               <div className={classes.bigImage}>
                 <img
+                  className={classes.propertiesImage}
                   src={this.props.currProduct.bigImage}
                   alt={this.props.currProduct.productName}
                 />
@@ -59,7 +60,7 @@ class Properties extends Component {
               <p>Złóż zamówienie przez telefon:</p>
               <p>+48 123-456-789</p>
               <p>Razem: {this.props.currProduct.price + 15} PLN</p>
-              <div>
+              <div className={classes.addToCartButton}>
                 <Button
                   clicked={() => {
                     this.addToCartHandler();

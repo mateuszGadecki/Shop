@@ -1,9 +1,10 @@
 import React from "react";
 
 import Producers from "./ProducersItem/ProducersItem";
+import classes from "./ProducerList.module.css";
 
 const producerList = (props) => (
-  <ul>
+  <ul className={classes.producerList}>
     <Producers currentProducer={props.currentProducer} clicked={props.filter}>
       Canon
     </Producers>

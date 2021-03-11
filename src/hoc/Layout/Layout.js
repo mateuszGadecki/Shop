@@ -35,6 +35,7 @@ class Layout extends Component {
           isAuth={this.props.isAuthenticated}
           open={this.state.showSideDrawer}
           closed={this.sideDrawerClosedHandler}
+          cartItems={this.props.cartItems.length}
         />
         <main className={classes.Content}>{this.props.children}</main>
         <Footer isAuth={this.props.isAuthenticated} />

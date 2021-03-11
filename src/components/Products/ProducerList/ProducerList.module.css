@@ -1,0 +1,8 @@
+@media (max-width: 590px) {
+  .producerList {
+    width: 100%;
+    display: flex;
+    box-sizing: border-box;
+    flex-wrap: wrap;
+  }
+}
