@@ -55,7 +55,7 @@ class Cart extends Component {
           }}
           fontSize="1.5rem"
         >
-          Zaloguj się aby kontunuować
+          Zaloguj się aby kontynuować
         </Button>
       );
     }

@@ -8,6 +8,10 @@ import Spinner from "../../components/UI/Spinner/Spinner";
 import * as actions from "../../store/actions/index";
 
 class Offer extends Component {
+  state = {
+    loading: false,
+  };
+
   componentDidMount() {
     this.props.onInitProducts();
   }
@@ -16,10 +20,13 @@ class Offer extends Component {
     const filterByProducerHandler = (e) => {
       let firedButton = e.target.value;
       this.props.onSetCurrProducer(firedButton);
+      this.setState({ loading: true });
+      setTimeout(() => {
+        this.setState({ loading: false });
+      }, 500);
     };
-
     let products;
-    if (this.props.loading) {
+    if (this.props.loading || this.state.loading) {
       products = (
         <div>
           <Spinner />

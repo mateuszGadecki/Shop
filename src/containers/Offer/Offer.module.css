@@ -49,6 +49,19 @@
   display: grid;
   grid-template-columns: 33.3% 33.3% 33.3%;
   grid-template-rows: 33.3% 33.3% 33.3%;
+  animation-name: fadeInDown;
+  animation-duration: 1s;
+}
+
+@keyframes fadeInDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @media (max-width: 1350px) {
