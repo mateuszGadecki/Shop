@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { Redirect } from "react-router-dom";
+import Transition from "react-transition-group/Transition";
 
 import classes from "./AccountForm.module.css";
 import Input from "../../../components/UI/Input/Input";
@@ -10,6 +11,7 @@ import Spinner from "../../../components/UI/Spinner/Spinner";
 class AccountForm extends Component {
   state = {
     register: false,
+    login: true,
     loginForm: {
       name: {
         elementConfig: {
@@ -132,12 +134,14 @@ class AccountForm extends Component {
 
   /*========== Switching between login and register form ========== */
   showRegisterForm = () => {
+    this.setState({ login: false });
     this.setState({ register: true });
     this.setState({ isSignUp: true });
     this.setState({ errorMessage: null });
   };
 
   showLogInForm = () => {
+    this.setState({ login: true });
     this.setState({ register: false });
     this.setState({ isSignUp: false });
     this.setState({ errorMessage: null });
@@ -292,7 +296,43 @@ class AccountForm extends Component {
       );
     }
 
-    return <div className={classes.AccountForm}>{formContent}</div>;
+    return (
+      <Transition
+        in={this.state.register}
+        timeout={1000}
+        onEnter={() => console.log("onEnter")}
+        onEntering={() => console.log("onEntering")}
+        onEntered={() => console.log("onEntered")}
+        onExit={() => console.log("onExit")}
+        onExiting={() => console.log("onExiting")}
+        onExited={() => console.log("onExited")}
+      >
+        {(state) => {
+          let cssClasses;
+          if (this.state.register) {
+            cssClasses = [
+              classes.AccountForm,
+              state === "entering"
+                ? classes.RegisterFormOpen
+                : state === "exiting"
+                ? classes.RegisterFormClosed
+                : null,
+            ];
+          } else {
+            cssClasses = [
+              classes.AccountForm,
+              state === "entering"
+                ? classes.LoginFormClosed
+                : state === "exiting"
+                ? classes.LoginFormOpen
+                : null,
+            ];
+          }
+
+          return <div className={cssClasses.join(" ")}>{formContent}</div>;
+        }}
+      </Transition>
+    );
   }
 }
 

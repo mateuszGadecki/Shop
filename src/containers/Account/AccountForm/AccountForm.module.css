@@ -78,6 +78,65 @@
   font-size: 1.2rem;
 }
 
+.RegisterFormOpen {
+  animation: openRegisterForm 0.6s ease-out forwards;
+}
+
+.RegisterFormClosed {
+  animation: closeRegisterForm 0.6s ease-out forwards;
+}
+
+@keyframes openRegisterForm {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeRegisterForm {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+.LoginFormOpen {
+  animation: openLoginForm 0.6s ease-out forwards;
+}
+
+.LoginFormClosed {
+  animation: closeLoginForm 0.6s ease-out forwards;
+}
+
+@keyframes openLoginForm {
+  0% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes closeLoginForm {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(100%);
+  }
+}
+
 /* Queries */
 
 @media (max-width: 970px) {
