@@ -273,16 +273,7 @@ class AccountForm extends Component {
     }
 
     return (
-      <Transition
-        in={this.state.register}
-        timeout={1000}
-        onEnter={() => console.log("onEnter")}
-        onEntering={() => console.log("onEntering")}
-        onEntered={() => console.log("onEntered")}
-        onExit={() => console.log("onExit")}
-        onExiting={() => console.log("onExiting")}
-        onExited={() => console.log("onExited")}
-      >
+      <Transition in={this.state.register} timeout={1000}>
         {(state) => {
           let cssClasses;
           if (this.state.register) {
