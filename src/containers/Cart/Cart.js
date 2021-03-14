@@ -82,14 +82,14 @@ class Cart extends Component {
       cartTitles = (
         <div className={classes.CartColumns}>
           <div className={classes.CartTitleContainer}>
-            <Title fontSize="2.2rem">Lista Produktów</Title>
+            <Title fontSize="2.2rem">Produkty</Title>
           </div>
 
           <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Cena</Title>
           </div>
           <div className={classes.CartTitleContainer}>
-            <Title fontSize="2.2rem">Przewidywany Czas Dostawy</Title>
+            <Title fontSize="2.2rem">Dostawa</Title>
           </div>
           <div className={classes.CartTitleContainer}>
             <Title fontSize="2.2rem">Koszt dostawy</Title>
